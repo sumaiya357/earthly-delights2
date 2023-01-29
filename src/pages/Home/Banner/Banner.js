@@ -51,7 +51,7 @@ const Banner = () => {
                         grow into Flowers</h1>
                     </div>
                     <div className="absolute flex justify-end transform -translate-y-1/2 right-96 w-1/2   top-2/3 ">
-                        <p className='text-3xl font-bold text-white'>Get upto 35% off</p>
+                        <p className='text-3xl font-bold text-white'>Get upto 30% off</p>
                     </div>
                     <div className="absolute flex justify-start transform -translate-y-1/2 right-1/3 mt-5   top-3/4 ">
                     <button className="btn btn-success text-white button">Shop Now</button>
