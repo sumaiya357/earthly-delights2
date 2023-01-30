@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Category from '../../Shared/Category/Category';
 import InfoCard from './InfoCard';
 
 const InfoCards = () => {
@@ -32,21 +33,7 @@ const InfoCards = () => {
             <div className=' flex justify-center  '>
             <div className=' flex justify-center w-56 mt-5 mb-12 ml-20 mr-5 bg-gray-300 h-[42rem] lg:h-[32rem] p-2'>
             {/* h-[32rem] */}
-                <ul className="menu menu-compact bg-base-400 rounded-box mt-3 ">
-                    <h4 className='text-2xl font-bold font-serif mb-5'>Category</h4>
-                    <>
-                    <Link to='/flower' className='mb-4 font-bold font-serif pt-8'>Flower Plant</Link> 
-                    <Link to='/indoor' className='mb-4 font-bold font-serif'>Indoor Plant</Link>
-                    <Link to='/fruit' className='mb-4 font-bold font-serif'>Fruit Plant</Link> 
-                    <Link to='/bonsai' className='mb-4 font-bold font-serif'>Bonsai Plant</Link>  
-                    <Link to='/herbal' className='mb-4 font-bold font-serif'>Herbal Plant</Link> 
-                    <Link to='/spices' className='mb-4 font-bold font-serif'>Spices Plant</Link> 
-                    <Link to='/vegetables' className='mb-4 font-bold font-serif'>Vegetables</Link> 
-                     
-                    <Link to='/seeds' className='mb-4 font-bold font-serif'>Seeds</Link> 
-                   
-                    </>
-                </ul>
+                <Category></Category>
             </div>
             </div>
         </div>
