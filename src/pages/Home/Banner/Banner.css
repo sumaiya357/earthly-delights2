@@ -15,8 +15,9 @@
     text-transform: uppercase;
     transition: 0.5s;
     background-size: 200% auto;
-    color: white;
-    background-image: linear-gradient(to right, #e1dac4 0%, #01b222 51%, #9ff5ba 100%);
+    color: rgb(255, 255, 255);
+    background-image: linear-gradient(to right, #96ee74 0%, #118e27 51%, #96ee74 100%);
+    box-shadow: 0px 0px 10px rgb(207, 200, 200);
  
    }
   .button:hover {
