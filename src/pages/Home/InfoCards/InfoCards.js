@@ -15,7 +15,7 @@ const InfoCards = () => {
         <div className='grid grid-cols-2 lg:grid-cols-2  p-5'>
              
             <div className=''> {/* gap-x-8 gap-y-4 */}
-            <h4 className='bg-green-700 text-primary-content  mt-5 mb-12 p-3'>OUR BEST SELLLING PRODUCTS</h4>
+            <h4 className='bg-green-700 text-primary-content lg:text-3xl md:text-xl mt-5 mb-12 p-3'>OUR BEST SELLLING PRODUCTS</h4>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-4 '>
                
                {
