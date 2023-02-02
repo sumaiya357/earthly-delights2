@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
     return (
         <div>
-            <div className="navbar bg-green-700 text-primary-content mt-5 mb-12">
+            <div className="navbar bg-green-700 text-primary-content mt-5">
 
                 
 
