@@ -1,10 +1,11 @@
 import { createBrowserRouter } from "react-router-dom"
 import Main from "../../Layout/Main"
 import Home from "../../pages/Home/Home/Home"
-import ShopAllItems from "../../pages/Home/Home/OurProducts/ShopAllItems"
+import ShopAllItems from "../../pages/Home/Home/Shop/ShopAllItems"
+
 import Login from "../../pages/Login/Login"
 import Order from "../../pages/Order/Order"
-import Shop from "../../pages/Shop/Shop"
+
 import SignUp from "../../pages/SignUp/SignUp"
 
  const router = createBrowserRouter([
@@ -16,7 +17,6 @@ import SignUp from "../../pages/SignUp/SignUp"
                 path: '/',
                 element: <Home></Home>
             },
-
             {
                 path: '/shop',
                 element: <ShopAllItems></ShopAllItems>

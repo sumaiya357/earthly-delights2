@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { addToDb, getStoredCart } from '../../../../utilities/fakedb';
-import Cart from '../Cart/Cart';
+import Cart from '../Cart/Cart'
 import Product from '../Product/Product';
 
 
@@ -9,6 +9,7 @@ const ShopAllItems = () => {
     const [cart, setCart] = useState([])
 
     const [products, setProducts] = useState([]) ;
+
     useEffect( () => {
         fetch('Products.json')
         .then(res => res.json())
@@ -39,6 +40,9 @@ const ShopAllItems = () => {
     const handleAddToCart = (selectedProduct) => {
         // console.log('clicked');
         console.log(selectedProduct);
+
+       const newCart = [...cart, selectedProduct];
+       setCart(newCart)
     }
     //     let newCart = []
     //     const exist = cart.find( product => product.id === selectedProduct.id )
@@ -58,11 +62,12 @@ const ShopAllItems = () => {
 
 
     return (
-        <div className='grid grid-cols-2 lg:grid-cols-2 '>
-              {/* <h4 className='bg-green-700 text-primary-content lg:text-3xl md:text-xl mt-5 mb-12 p-5'>Our Product</h4> */}
-              
+        <div >
+              <h4 className='bg-green-700 text-primary-content lg:text-3xl md:text-xl mt-5 mb-12 p-5'>Our Product</h4>
+             <div className='grid grid-cols-2 lg:grid-cols-2 '>
+                 
              <div className='flex justify-center'>
-             <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-x-10 gap-x-44 gap-y-4 mb-10 p-5'>
+             <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-x-10 gap-x-44 gap-y-4 mb-10 p-5'>
                  {
                     products.map( product => <Product
                     id = {product.id}
@@ -75,14 +80,16 @@ const ShopAllItems = () => {
               </div>
              </div>
 
-              <div className='cart-container flex justify-center'> 
-                {/* <Cart cart={cart}></Cart> */}
-                 <div className='mt-5 border border-indigo-600 text-2xl p-3'>
-                 <h5>Order Summary</h5>
-                <p>Selected Items: {cart.length}</p>
+              <div className='cart-container pl-56 '> 
+                <Cart
+                
+                cart={cart}></Cart>
+                
+                
                  </div>
+             </div>
             </div>
-        </div>
+        
     );
 };
 

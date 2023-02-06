@@ -29,11 +29,17 @@ const InfoCards = () => {
            </div >
             </div>
             
-
-            <div className=' flex justify-center  '>
-            <div className=' flex justify-center w-56 mt-5 mb-12 ml-20 mr-5 bg-gray-300 h-[42rem] lg:h-[32rem] p-2'>
+            {/* border-black border-8  */}
+            <div className=' grid h-screen place-items-center'>
+            <h4 className='text-2xl font-bold font-serif mb-5 mt-10 ml-5'>All Category</h4>
+            <div className='  flex justify-center w-60 mt-5 mb-12 ml-20 mr-5 bg-gray-300 h-[42rem] lg:h-[32rem] p-2   '>
             {/* h-[32rem] */}
+            
+            
+                
                 <Category></Category>
+                
+           
             </div>
             </div>
         </div>

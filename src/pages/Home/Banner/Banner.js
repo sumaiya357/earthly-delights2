@@ -6,7 +6,8 @@ import b10 from '../../../Assets/Images/Banner/b2.jpg'
 import './Banner.css'
 import b12 from '../../../Assets/Images/Banner/b12.jpg'
 import './Banner.css'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
 const Banner = () => {
     return (
@@ -28,7 +29,9 @@ const Banner = () => {
                         <p className='text-xs md:text-xl lg:text-3xl  font-bold text-white'>Get upto 30% off</p>
                     </div>
                     <div className="btn-gradient absolute flex justify-start transform -translate-y-1/2 right-1/3 mt-5   top-3/4 ">
-                    <button className="btn btn-success button text-white text-xs md:text-xs lg:text-xl btn-sm lg:btn-md">Shop Now</button>
+                    <button className="btn btn-success button text-white text-xs md:text-xs lg:text-xl btn-sm lg:btn-md">Shop Now 
+                    
+                    </button>
                     </div>
                     
 

@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const Category = () => {
     return (
         <div>
-            <ul className="menu menu-compact bg-base-400 rounded-box mt-3 ">
-                    <h4 className='text-2xl font-bold font-serif mb-5'>Category</h4>
+            <ul className="menu menu-compact bg-base-400 rounded-box mt-3 p-3 hover:red">
+                    {/* <h4 className='text-2xl font-bold font-serif mb-5'>Category</h4> */}
                     <>
                     <Link to='/flower' className='mb-4 font-bold font-serif pt-8'>Flower Plant</Link> 
                     <Link to='/indoor' className='mb-4 font-bold font-serif'>Indoor Plant</Link>

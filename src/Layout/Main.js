@@ -6,9 +6,13 @@ import Navbar from '../pages/Shared/Navbar/Navbar';
 const Main = () => {
     return (
         <div>
-            <Navbar></Navbar>
+          <div className='sticky top-0 z-50'>
+          <Navbar></Navbar>
+          </div>
 
+            <div className='relative'>
             <Outlet></Outlet>
+            </div>
 
             <Footer></Footer>
         </div>

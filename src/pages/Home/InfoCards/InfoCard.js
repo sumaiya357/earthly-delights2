@@ -1,3 +1,5 @@
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
 const InfoCard = ({ singlebestSellProduct }) => {
@@ -14,7 +16,8 @@ const InfoCard = ({ singlebestSellProduct }) => {
                 </h2>
                 <p className='font-bold ' >{price} <span className='text-2xl'>৳</span></p>
                 <div className="card-actions justify-start">
-                <button className="btn btn-success btn-sm text-xs button text-white  ">Shop Now</button>
+                <button className="btn btn-success btn-sm text-xs button text-white  ">Add To Cart
+                <FontAwesomeIcon className='ml-2' icon={faShoppingCart}></FontAwesomeIcon></button>
                 </div>
             </div>
         </div>

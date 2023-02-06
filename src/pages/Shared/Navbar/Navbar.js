@@ -1,14 +1,17 @@
+import { faArrowAltCircleDown, faArrowDown, faArrowDown19, faArrowDownShortWide, faArrowsDownToLine, faArrowsDownToPeople, faArrowsUpDown, faArrowsUpDownLeftRight, faFileDownload, faLongArrowAltDown, faShoppingCart, faTurnDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Category from '../Category/Category';
 
 const Navbar = () => {
     return (
         <div>
-            <div className="navbar bg-green-700 text-primary-content mt-5">
+            <div className="navbar  bg-green-700 text-primary-content mt-5">
 
-                
 
-                 {/* --------------//--------- FOR SMALL SCREEN //--------------//*/}
+
+                {/* --------------//--------- FOR SMALL SCREEN //--------------//*/}
 
 
                 <div className="navbar-start ">
@@ -18,13 +21,24 @@ const Navbar = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li><Link to='/'>Home</Link></li>
+
+                            <li tabIndex={0}>
+                                <a className="justify-between">
+                                    Parent
+                                    <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+                                </a>
+                                <ul className="p-2">
+                                    <li><a>Submenu 1</a></li>
+                                    <li><a>Submenu 2</a></li>
+                                </ul>
+                            </li>
                             <li><Link to='/shop'>Shop</Link></li>
                             <li><Link to='/order'>Order</Link></li>
                             <li><Link to='/login'>Login</Link></li>
                             <li><Link to='/signup'>SignUp</Link></li>
                         </ul>
                     </div>
-                    <Link to='/'className="btn btn-ghost normal-case text-xl">Eartly Delights</Link>
+                    <Link to='/' className="btn btn-ghost normal-case text-xl">Eartly Delights</Link>
                 </div>
 
 
@@ -39,15 +53,26 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex ">
                     <ul className="menu menu-horizontal px-1">
                         <li><Link to='/'>Home</Link></li>
+                        <li tabIndex={0}>
+
+                            
+                        <Link to='/' className="justify-between">
+                               Category
+                                <FontAwesomeIcon icon={faTurnDown}></FontAwesomeIcon>
+                                </Link>
+                            <ul className="p-2">
+                            <li className='bg-amber-400'><Category></Category></li>
+                            </ul>
+                        </li>
                         <li><Link to='/shop'>Shop</Link></li>
                         <li><Link to='/order'>Order</Link></li>
                         <li><Link to='/login'>Login</Link></li>
                         <li><Link to='/signup'>SignUp</Link></li>
                     </ul>
                 </div>
-                        <div className="navbar-end">
+                <div className="navbar-end">
 
-                        </div>
+                </div>
             </div>
         </div>
     );
