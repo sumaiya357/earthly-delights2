@@ -2,9 +2,9 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
-const InfoCard = ({ singlebestSellProduct }) => {
+const InfoCard = (props) => {
 
-    const { name, img, price } = singlebestSellProduct;
+    const { name, img, price } = props.singlebestSellProduct;
     return (
 
         <div className="card w-56 bg-base-100 shadow-xl rounded">
@@ -16,10 +16,10 @@ const InfoCard = ({ singlebestSellProduct }) => {
                 </h2>
                 <p className='font-bold ' >{price} <span className='text-2xl'>৳</span></p>
                 <div className="card-actions justify-start">
-                <button className="btn btn-success btn-sm text-xs button text-white  ">Add To Cart
+                <button onClick={() => props.handleAddToCart(props.singlebestSellProduct)} className="btn btn-success btn-sm text-xs button text-white  ">Add To Cart
                 <FontAwesomeIcon className='ml-2' icon={faShoppingCart}></FontAwesomeIcon></button>
                 </div>
-            </div>
+            </div> 
         </div>
 
 

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { addToDb, getStoredCart } from '../../../../utilities/fakedb';
 import Cart from '../Cart/Cart'
+import InfoCard from '../InfoCards/InfoCard';
+import NewArrivalCard from '../NewArrivalCards/NewArrivalCard';
 import Product from '../Product/Product';
 
 
@@ -8,13 +10,34 @@ const ShopAllItems = () => {
 
     const [cart, setCart] = useState([])
 
-    const [products, setProducts] = useState([]) ;
+    // OUR PRODUCT
+    const [products, setProducts] = useState([]);
 
-    useEffect( () => {
+    useEffect(() => {
         fetch('Products.json')
-        .then(res => res.json())
-        .then(data=> setProducts(data))
+            .then(res => res.json())
+            .then(data => setProducts(data))
     })
+
+    // BEST SELLING PRODUCT
+    const [bestSell, setBestSell] = useState([]);
+    useEffect(() => {
+        fetch('BestSell.json')
+            .then(res => res.json())
+            .then(data => setBestSell(data))
+    })
+
+    // NEW ARRIVALS
+
+    const [newarrival, setNewArrival] = useState([]);
+
+    useEffect(() => {
+        fetch('NewArrivals.json')
+            .then(res => res.json())
+            .then(data => setNewArrival(data))
+
+    })
+
 
     // useEffect(() =>{
     //     console.log('local stoarge first line',products);
@@ -30,7 +53,7 @@ const ShopAllItems = () => {
     //             // console.log(addedProduct)
     //             savedCart.push(addedProduct);
     //         }
-           
+
     //     }
     //     setCart(savedCart);
     //     // console.log('local storGE finished');
@@ -41,8 +64,8 @@ const ShopAllItems = () => {
         // console.log('clicked');
         console.log(selectedProduct);
 
-       const newCart = [...cart, selectedProduct];
-       setCart(newCart)
+        const newCart = [...cart, selectedProduct];
+        setCart(newCart)
     }
     //     let newCart = []
     //     const exist = cart.find( product => product.id === selectedProduct.id )
@@ -62,34 +85,79 @@ const ShopAllItems = () => {
 
 
     return (
-        <div >
-              <h4 className='bg-green-700 text-primary-content lg:text-3xl md:text-xl mt-5 mb-12 p-5'>Our Product</h4>
-             <div className='grid grid-cols-2 lg:grid-cols-2 '>
-                 
-             <div className='flex justify-center'>
-             <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-x-10 gap-x-44 gap-y-4 mb-10 p-5'>
-                 {
-                    products.map( product => <Product
-                    id = {product.id}
-                    product = {product}
-                    handleAddToCart={handleAddToCart}
-                    >
+        <div className='grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2  p-5'>
+            {/* className='grid grid-cols-2 lg:grid-cols-2  p-5' */}
 
-                    </Product>)
-                 }
-              </div>
-             </div>
+            <div>
+                <div >
+                    <h4 className='bg-green-700 text-primary-content lg:text-3xl md:text-xl mt-5 mb-12 p-3'>Our Product</h4>
 
-              <div className='cart-container pl-56 '> 
-                <Cart
-                
-                cart={cart}></Cart>
-                
-                
-                 </div>
-             </div>
+
+                    <div className='flex justify-center'>
+                        <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-x-10 gap-x-24 gap-y-4 mb-10 p-5'>
+                            {
+                                products.map(product => <Product
+                                    id={product.id}
+                                    product={product}
+                                    handleAddToCart={handleAddToCart}
+                                >
+                                </Product>)
+                            }
+                        </div>
+                    </div>
+
+                </div>
+
+                {/* BEST SELLING PRODUCT */}
+
+               
+                <div >
+                    <h4 className='bg-green-700 text-primary-content lg:text-3xl md:text-xl mt-5 mb-12 p-3'>OUR BEST SELLLING PRODUCTS</h4>
+
+
+                    <div className='flex justify-center'>
+                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-4 '>
+
+                            {
+                                bestSell.map(singlebestSellProduct => <InfoCard
+
+                                    key={singlebestSellProduct.id}
+                                    singlebestSellProduct={singlebestSellProduct}
+                                    handleAddToCart={handleAddToCart}>
+
+                                </InfoCard>)
+                            }
+                        </div >
+                    </div>
+                </div>
+
+
+                {/* NEW ARRIVALS */}
+
+                <div>
+                    <h4 className='bg-green-700 text-primary-content lg:text-3xl md:text-xl mt-5 mb-12 p-5 mt-20'>New Arrivals of 2023</h4>
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-36 gap-y-4 mb-10 p-5'>
+                        {
+                            newarrival.map(newArrivalProduct => <NewArrivalCard
+                                key={newArrivalProduct.id}
+                                newArrivalProduct={newArrivalProduct}
+                                handleAddToCart={handleAddToCart}></NewArrivalCard>)
+                        }
+                    </div>
+                </div>
             </div>
-        
+
+
+
+            <div className='cart-container pl-72 mt-5 '>
+                <Cart
+
+                    cart={cart}></Cart>
+
+
+            </div>
+        </div>
+
     );
 };
 

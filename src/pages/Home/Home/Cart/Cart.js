@@ -20,9 +20,9 @@ const Cart = (props) => {
 
     const subTotal= (total + delivery);
     return (
-         <div className='sticky top-0 pt-5 pl-5 bg-amber-200   h-screen  w-56'>
+         <div className='sticky top-0 pt-5 pl-9 bg-amber-100 shadow-2xl border-amber-200 border-1  h-screen  w-56'>
 
-                <h5 className=' pt-10 text-2xl font-bold' >Order Summary</h5>
+                <h5 className=' pt-10 text-2xl font-bold text-green-700' >Your Cart</h5>
                 <p className=' pt-5 '>Selected Items : {cart.length}</p>
 
                 <p className=' pt-3'>Total Price : <span className='text-2xl'>৳</span> {total}</p>
