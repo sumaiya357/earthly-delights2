@@ -2,16 +2,15 @@ import React from 'react';
 
 const Cart = (props) => {
     const { cart } = props;
-    // console.log(cart)
+    console.log(cart)
 
     let total = 0;
     let quantity = 0;
     let delivery = 0;
 
     for(const product of cart){
-        total = total + product.price 
-        // * product.quantity;
-        // quantity = quantity + product.quantity;
+        total = total + product.price * product.quantity ;
+        quantity = quantity + product.quantity;
         delivery = delivery + product.charge;
         // console.log(total)
     }
@@ -23,7 +22,7 @@ const Cart = (props) => {
          <div className='sticky top-0 pt-5 pl-9 bg-amber-100 shadow-2xl border-amber-200 border-1  h-screen  w-56'>
 
                 <h5 className=' pt-10 text-2xl font-bold text-green-700' >Your Cart</h5>
-                <p className=' pt-5 '>Selected Items : {cart.length}</p>
+                <p className=' pt-5 '>Selected Items : {quantity}</p>
 
                 <p className=' pt-3'>Total Price : <span className='text-2xl'>৳</span> {total}</p>
 

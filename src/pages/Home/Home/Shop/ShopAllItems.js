@@ -14,35 +14,45 @@ const ShopAllItems = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('Products.json')
+        // console.log('products load before fetch')
+            fetch('Products.json')
             .then(res => res.json())
-            .then(data => setProducts(data))
-    })
+            .then(data => {
+                setProducts(data);
+                
+            // console.log('products loaded')
+        })
+    }, [])
 
-    // BEST SELLING PRODUCT
-    const [bestSell, setBestSell] = useState([]);
-    useEffect(() => {
-        fetch('BestSell.json')
-            .then(res => res.json())
-            .then(data => setBestSell(data))
-    })
+     
 
-    // NEW ARRIVALS
 
-    const [newarrival, setNewArrival] = useState([]);
+    // -------------- BEST SELLING PRODUCT -------------
+    // const [bestSell, setBestSell] = useState([]);
+    // useEffect(() => {
+    //     fetch('BestSell.json')
+    //         .then(res => res.json())
+    //         .then(data => setBestSell(data))
+    // })
 
-    useEffect(() => {
-        fetch('NewArrivals.json')
-            .then(res => res.json())
-            .then(data => setNewArrival(data))
 
-    })
+
+    //------------ NEW ARRIVALS-----------
+
+    // const [newarrival, setNewArrival] = useState([]);
+
+    // useEffect(() => {
+    //     fetch('NewArrivals.json')
+    //         .then(res => res.json())
+    //         .then(data => setNewArrival(data))
+
+    // })
 
 
     // useEffect(() =>{
     //     console.log('local stoarge first line',products);
-    //     const storedCart = getStoredCart();
-    //     // console.log(storedCart);
+        // const storedCart = getStoredCart()
+        // console.log(storedCart);
     //     const savedCart = [];
     //     for(const id in storedCart){
     //         // console.log(id);
@@ -57,15 +67,51 @@ const ShopAllItems = () => {
     //     }
     //     setCart(savedCart);
     //     // console.log('local storGE finished');
-    // }, [products])
+    // },  [products])
+
+    
+
+    useEffect( () => {
+        // console.log('local storage first line',products)
+        const storedCart = getStoredCart();
+        const savedCart =[];
+        console.log(storedCart);
+        for(const id in storedCart){
+            // console.log(id)
+             const addedProduct = products?.find(product => 
+                product.id === id)
+                //product.id === id)
+             console.log(addedProduct)
+             if(addedProduct){
+                const quantity = storedCart[id];
+                addedProduct.quantity = quantity;
+                 savedCart.push(addedProduct)
+             }
+        }
+         setCart(savedCart);
+             
+    }, [products])
+     
 
 
     const handleAddToCart = (selectedProduct) => {
         // console.log('clicked');
-        console.log(selectedProduct);
+        // console.log(selectedProduct);
+        let newCart = [];
+        const exists = cart.find(product => product.id === selectedProduct.id)
+        if(!exists){
+            selectedProduct.quantity =1;
+            newCart = [...cart, selectedProduct];
+        }
+        else{
+            const rest = cart.filter(product => product.id !== selectedProduct.id);
+            exists.quantity = exists.quantity +1;
+            newCart = [...rest, exists];
+        }
+      
+        setCart(newCart);
+        addToDb(selectedProduct.id);
 
-        const newCart = [...cart, selectedProduct];
-        setCart(newCart)
     }
     //     let newCart = []
     //     const exist = cart.find( product => product.id === selectedProduct.id )
@@ -97,7 +143,7 @@ const ShopAllItems = () => {
                         <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-x-10 gap-x-24 gap-y-4 mb-10 p-5'>
                             {
                                 products.map(product => <Product
-                                    id={product.id}
+                                    key={product.id}
                                     product={product}
                                     handleAddToCart={handleAddToCart}
                                 >
@@ -118,7 +164,7 @@ const ShopAllItems = () => {
                     <div className='flex justify-center'>
                         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-4 '>
 
-                            {
+                            {/* {
                                 bestSell.map(singlebestSellProduct => <InfoCard
 
                                     key={singlebestSellProduct.id}
@@ -126,7 +172,7 @@ const ShopAllItems = () => {
                                     handleAddToCart={handleAddToCart}>
 
                                 </InfoCard>)
-                            }
+                            } */}
                         </div >
                     </div>
                 </div>
@@ -137,12 +183,12 @@ const ShopAllItems = () => {
                 <div>
                     <h4 className='bg-green-700 text-primary-content lg:text-3xl md:text-xl mt-5 mb-12 p-5 mt-20'>New Arrivals of 2023</h4>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-36 gap-y-4 mb-10 p-5'>
-                        {
+                        {/* {
                             newarrival.map(newArrivalProduct => <NewArrivalCard
                                 key={newArrivalProduct.id}
                                 newArrivalProduct={newArrivalProduct}
                                 handleAddToCart={handleAddToCart}></NewArrivalCard>)
-                        }
+                        } */}
                     </div>
                 </div>
             </div>

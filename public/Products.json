@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": "1",
         "name": "Bonsai",
         "img": "https://assets.winni.in/product/primary/2014/6/30755.jpeg?dpr=1&w=500",
         "price": 3000,
@@ -8,7 +8,7 @@
         "charge": 100
     },
     {
-        "id": 2,
+        "id": "2",
         "name": "Lotus",
         "img": "https://i.pinimg.com/736x/f7/3c/72/f73c72d63b2b0821e8ebc72ab5ff343e.jpg",
         "price": 1000,
@@ -16,7 +16,7 @@
         "charge": 100
     },
     {
-        "id": 3,
+        "id": "3",
         "name": "Pink Rose",
         "img": "https://www.thefragrantrosecompany.co.uk/media/catalog/product/cache/92cbed5f29d6c3826fd0716e473f2bfa/m/i/millie-garden-rose-1.jpg",
         "price": 2000,
@@ -24,7 +24,7 @@
         "charge": 100
     },
     {
-        "id": 4,
+        "id": "4",
         "name": "Tomato",
         "img": "https://laidbackgardener.blog/wp-content/uploads/2018/02/20180214a-sweetvalentinehybridtomato-www-hpsseed-com.jpg",
         "price": 700,
@@ -32,7 +32,7 @@
         "charge": 100
     },
     {
-        "id": 5,
+        "id": "5",
         "name": "Aloe Vera",
         "img": "https://i.pinimg.com/736x/ef/a6/95/efa695bdc0a970802cb2863b33e958f0.jpg",
         "price": 1500,
@@ -40,7 +40,7 @@
         "charge": 100
     },
     {
-        "id": 6,
+        "id": "6",
         "name": "Strawberry",
         "img": "https://www.thegardenshop.ie/images/detailed/6/alpine-strawberry-plants.jpg",
         "price": 4000,
@@ -49,7 +49,7 @@
     }
     ,
     {
-        "id": 7,
+        "id":"7",
         "name": "Strawberry",
         "img": "https://www.thegardenshop.ie/images/detailed/6/alpine-strawberry-plants.jpg",
         "price": 4000,
@@ -58,7 +58,7 @@
     }
     ,
     {
-        "id": 8,
+        "id": "8",
         "name": "Strawberry",
         "img": "https://www.thegardenshop.ie/images/detailed/6/alpine-strawberry-plants.jpg",
         "price": 4000,
@@ -66,12 +66,13 @@
         "charge": 100
     },
     {
-        "id": 5,
+        "id": 9,
         "name": "Aloe Vera",
         "img": "https://i.pinimg.com/736x/ef/a6/95/efa695bdc0a970802cb2863b33e958f0.jpg",
         "price": 1500,
         "quantity": 0,
         "charge": 100
+        
     }
 
 ]

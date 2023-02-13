@@ -9,7 +9,7 @@ const NewArrivalCard = (props) => {
     
             
             <div className="card w-60 bg-base-100 shadow-xl">
-                <figure><img src={img} alt="Shoes" /></figure>
+                {/* <figure><img src={img} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">
                         {name}
@@ -18,10 +18,10 @@ const NewArrivalCard = (props) => {
                 <p className='font-bold ' >{price} <span className='text-2xl'>৳</span></p>
                   
                 <div className="card-actions justify-start">
-                <button onClick={() => props.handleAddToCart(props.newArrivalProduct)} className="btn btn-success btn-sm text-xs button text-white  ">Add To Cart
+                <button onClick={() => props.handleAddToCart(props.newArrivalProduct)} className="btn-cart btn btn-success btn-sm text-xs button text-white  ">Add To Cart
                 <FontAwesomeIcon className='ml-2' icon={faShoppingCart}></FontAwesomeIcon></button>
                 </div>
-                </div>
+                </div> */}
             </div>
       
     );
