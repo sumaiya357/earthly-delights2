@@ -1,10 +1,18 @@
 import { faTurnDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider';
 import Category from '../Category/Category';
 
 const Navbar = () => {
+    const {user, logOut} = useContext(AuthContext);
+
+    const handleLogOut = () =>{
+        logOut()
+        .then( () => {})
+        .catch(err => console.log(err))
+    }
     return (
         <div>
             <div className="navbar  bg-green-700 text-primary-content mt-5 ">
@@ -31,10 +39,19 @@ const Navbar = () => {
                             <li className='bg-amber-400'><Category></Category></li>
                             </ul>
                             </li>
+                            <li><Link to='/about'>About</Link></li>
                             <li><Link to='/shop'>Shop</Link></li>
                             <li><Link to='/order'>Order</Link></li>
+
+                            { user?.uid ? 
+                            <>
+                                <li> <Link to='/shop'>Shop</Link></li>
+                                <li><button onClick={handleLogOut} >SignOut</button></li>
+                            </>
+                            :
                             <li><Link to='/login'>Login</Link></li>
-                            <li><Link to='/signup'>SignUp</Link></li>
+                        }
+                        <li><Link to='/signup'>SignUp</Link></li>
                         </ul>
                     </div>
                     <Link to='/' className="btn btn-ghost normal-case text-xl">Eartly Delights</Link>
@@ -63,10 +80,18 @@ const Navbar = () => {
                             <li className='bg-amber-400'><Category></Category></li>
                             </ul>
                         </li>
-                        <li><Link to='/shop'>Shop</Link></li>
+                        <li><Link to='/about'>About</Link></li>
+                        <li></li>
                         <li><Link to='/order'>Order</Link></li>
-                        <li><Link to='/login'>Login</Link></li>
-                        <li><Link to='/signup'>SignUp</Link></li>
+                        { user?.uid ? 
+                            <>
+                                <li> <Link to='/shop'>Shop</Link></li>
+                                <li><button onClick={handleLogOut} >SignOut</button></li>
+                            </>
+                            :
+                            <li><Link to='/login'>Login</Link></li>
+                        }
+                         <li><Link to='/signup'>SignUp</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end">

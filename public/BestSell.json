@@ -25,27 +25,12 @@
     },
     {
         "id": 4,
-        "name": "Tomato",
-        "img": "https://laidbackgardener.blog/wp-content/uploads/2018/02/20180214a-sweetvalentinehybridtomato-www-hpsseed-com.jpg",
-        "price": 700 ,
-        "charge": 100,
-        "quantity" :0
-    },
-    {
-        "id": 5,
-        "name": "Aloe Vera",
-        "img": "https://i.pinimg.com/736x/ef/a6/95/efa695bdc0a970802cb2863b33e958f0.jpg",
-        "price": 1500,
-        "charge": 100,
-        "quantity" :0
-    },
-    {
-        "id": 6,
-        "name": "Strawberry",
-        "img": "https://www.thegardenshop.ie/images/detailed/6/alpine-strawberry-plants.jpg",
-        "price": 4000,
+        "name": "Black Berry",
+        "img": "https://www.tomorrowsharvest.com/store/pub/media/catalog/product/cache/49e19764d17a195b05fde2ec48914513/2/2/2248_jellybeanblueberry-closeup_1.jpg",
+        "price": 3000 ,
         "charge": 100,
         "quantity" :0
     }
+  
 
 ]

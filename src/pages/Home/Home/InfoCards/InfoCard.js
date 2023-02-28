@@ -8,7 +8,7 @@ const InfoCard = (props) => {
     return (
 
         <div className="card w-56 bg-base-100 shadow-xl rounded">
-            {/* <figure className=""><img src={img} alt="Shoes" /></figure>
+            <figure className=""><img src={img} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">
                 {name}
@@ -19,7 +19,7 @@ const InfoCard = (props) => {
                 <button onClick={() => props.handleAddToCart(props.singlebestSellProduct)} className="btn-cart btn btn-success btn-sm text-xs button text-white  ">Add To Cart
                 <FontAwesomeIcon className='ml-2' icon={faShoppingCart}></FontAwesomeIcon></button>
                 </div>
-            </div>  */}
+            </div> 
         </div>
 
 

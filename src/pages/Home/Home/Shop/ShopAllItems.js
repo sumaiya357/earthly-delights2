@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 import { addToDb, getStoredCart } from '../../../../utilities/fakedb';
 import Cart from '../Cart/Cart'
 import InfoCard from '../InfoCards/InfoCard';
@@ -10,31 +11,56 @@ const ShopAllItems = () => {
 
     const [cart, setCart] = useState([])
 
-    // OUR PRODUCT
-    const [products, setProducts] = useState([]);
-
-    useEffect(() => {
-        // console.log('products load before fetch')
-            fetch('Products.json')
-            .then(res => res.json())
-            .then(data => {
-                setProducts(data);
-                
-            // console.log('products loaded')
-        })
-    }, [])
-
-     
+       // -------------- BEST SELLING PRODUCT -------------
+       const [bestSell, setBestSell] = useState([]);
+       useEffect(() => {
+           fetch('BestSell.json')
+               .then(res => res.json())
+               .then(data => setBestSell(data))
+       })
 
 
-    // -------------- BEST SELLING PRODUCT -------------
-    // const [bestSell, setBestSell] = useState([]);
-    // useEffect(() => {
-    //     fetch('BestSell.json')
-    //         .then(res => res.json())
-    //         .then(data => setBestSell(data))
-    // })
+    //    useEffect( () => {
+    //     // console.log('local storage first line',products)
+    //     const storedCart = getStoredCart();
+    //     const savedCart =[];
+    //     console.log(storedCart);
+    //     for(const id in storedCart){
+    //         // console.log(id)
+    //          const addedProduct = bestSell?.find(product => 
+    //             product.id === id)
+    //             //product.id === id)
+    //          console.log(addedProduct)
+    //          if(addedProduct){
+    //             const quantity = storedCart[id];
+    //             addedProduct.quantity = quantity;
+    //              savedCart.push(addedProduct)
+    //          }
+    //     }
+    //      setCart(savedCart);
+             
+    // }, [bestSell])
 
+
+       const handleBestSellimg = (selectedProduct) => {
+        // console.log('clicked');
+        // console.log(selectedProduct);
+        let newCart = [];
+        const exists = cart.find(product => product._id === selectedProduct._id)
+        if(!exists){
+            selectedProduct.quantity =1;
+            newCart = [...cart, selectedProduct];
+        }
+        else{
+            const rest = cart.filter(product => product._id !== selectedProduct._id);
+            exists.quantity = exists.quantity +1;
+            newCart = [...rest, exists];
+        }
+      
+        setCart(newCart);
+        addToDb(selectedProduct._id);
+
+    }
 
 
     //------------ NEW ARRIVALS-----------
@@ -70,6 +96,8 @@ const ShopAllItems = () => {
     // },  [products])
 
     
+    //--------- OUR PRODUCT -------------//
+   const products = useLoaderData();
 
     useEffect( () => {
         // console.log('local storage first line',products)
@@ -79,7 +107,7 @@ const ShopAllItems = () => {
         for(const id in storedCart){
             // console.log(id)
              const addedProduct = products?.find(product => 
-                product.id === id)
+                product._id === id)
                 //product.id === id)
              console.log(addedProduct)
              if(addedProduct){
@@ -98,19 +126,19 @@ const ShopAllItems = () => {
         // console.log('clicked');
         // console.log(selectedProduct);
         let newCart = [];
-        const exists = cart.find(product => product.id === selectedProduct.id)
+        const exists = cart.find(product => product._id === selectedProduct._id)
         if(!exists){
             selectedProduct.quantity =1;
             newCart = [...cart, selectedProduct];
         }
         else{
-            const rest = cart.filter(product => product.id !== selectedProduct.id);
+            const rest = cart.filter(product => product._id !== selectedProduct._id);
             exists.quantity = exists.quantity +1;
             newCart = [...rest, exists];
         }
       
         setCart(newCart);
-        addToDb(selectedProduct.id);
+        addToDb(selectedProduct._id);
 
     }
     //     let newCart = []
@@ -142,8 +170,8 @@ const ShopAllItems = () => {
                     <div className='flex justify-center'>
                         <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-x-10 gap-x-24 gap-y-4 mb-10 p-5'>
                             {
-                                products.map(product => <Product
-                                    key={product.id}
+                                products?.map(product => <Product
+                                    key={product._id}
                                     product={product}
                                     handleAddToCart={handleAddToCart}
                                 >
@@ -164,15 +192,15 @@ const ShopAllItems = () => {
                     <div className='flex justify-center'>
                         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-4 '>
 
-                            {/* {
+                            {
                                 bestSell.map(singlebestSellProduct => <InfoCard
 
                                     key={singlebestSellProduct.id}
                                     singlebestSellProduct={singlebestSellProduct}
-                                    handleAddToCart={handleAddToCart}>
+                                    handleAddToCart={handleBestSellimg}>
 
                                 </InfoCard>)
-                            } */}
+                            } 
                         </div >
                     </div>
                 </div>
