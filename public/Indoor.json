@@ -1,0 +1,72 @@
+[
+    {
+        
+        "name": "Snake Plant",
+        "img": "https://cdn.shopify.com/s/files/1/0563/4300/3310/products/artificialsnakeplantmotherinlawtongue_700x700.jpg?v=1630144387",
+        "price": 100 ,
+        "charge": 100,
+        "quantity" :0
+    },
+
+  
+    {
+        
+        "name": "Monstera  Plant",
+        "img": "https://cdn.shopify.com/s/files/1/0061/6389/0289/products/PhilodendronMonsteraDeliciasa_1700d9d1-66a5-4838-95a4-3d68f59af962_x700.jpg?v=1616558491",
+        "price": 3000 ,
+        "charge": 100,
+        "quantity" :0
+    },
+    {
+        
+        "name": "Spider Plant",
+        "img": "https://www.flowerpower.com.au/media/catalog/product/cache/bdcf0022850627d2b6422c66929c11b7/1/5/1590050130_1.jpg",
+        "price": 3000 ,
+        "charge": 100,
+        "quantity" :0
+    },
+    {
+        
+        "name": "Dragon plant",
+        "img": "https://cdn.shopify.com/s/files/1/0061/6389/0289/products/DracaenaMarginata_x700.jpg?v=1616558857",
+        "price": 3000 ,
+        "charge": 100,
+        "quantity" :0
+    },
+   
+    {
+        
+        "name": "Silver dollar vine",
+        "img": "https://i.pinimg.com/originals/37/be/39/37be39c3932092d1f401acaf9106cf3b.jpg",
+        "price": 3000 ,
+        "charge": 100,
+        "quantity" :0
+    },
+    {
+        
+        "name": "Inchplant",
+        "img": "https://cdn.shopify.com/s/files/1/0586/9374/6850/products/wanderingdude.jpg?v=1645021933&width=1445",
+        "price": 3000 ,
+        "charge": 100,
+        "quantity" :0
+    },
+   
+    {
+        
+        "name": "Peacock plant ",
+        "img": "https://www.gertens.com/media/catalog/product/cache/2f7118fbe7bd22be61cf8b73d4db9058/c/a/calathea-makoyana-6in_1.jpg",
+        "price": 3000 ,
+        "charge": 100,
+        "quantity" :0
+    },
+    {
+        "name": "Purple Shamrock",
+        "img": "https://cdn.shopify.com/s/files/1/0584/7724/8721/products/127.Oxalistriangularis_701x700.jpg?v=1629044005",
+        "price": 4000,
+        "quantity": 0,
+        "charge": 100
+    }
+   
+
+   
+]

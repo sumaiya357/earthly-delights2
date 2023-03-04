@@ -1,0 +1,47 @@
+[
+    {
+        
+        "name": "Gorgeous Bonsai Fruit Tree",
+        "img": "https://static-01.daraz.com.bd/p/ca091a0d9a79b4972fde651b488a604e.jpg_720x720.jpg_.webp",
+        "price": 100 ,
+        "charge": 100,
+        "quantity" :0
+    },
+
+  
+    {
+        
+        "name": "Japanese Bonsai",
+        "img": "https://www.gardens4you.ie/media/catalog/product/cache/3a7af0a8e0e317723249dc9098669163/f/d/fd17119wh.jpg",
+        "price": 3000 ,
+        "charge": 100,
+        "quantity" :0
+    },
+    {
+        
+        "name": "Juniper Bonsai",
+        "img": "https://i0.wp.com/jacklinbonsai.com/wp-content/uploads/2022/01/Itoigawa-Juniper-1.jpg?resize=700%2C700&ssl=1",
+        "price": 3000 ,
+        "charge": 100,
+        "quantity" :0
+    },
+    {
+        
+        "name": "Adenium",
+        "img": "https://cdn.shopify.com/s/files/1/0584/7724/8721/products/2.ImpalaLily_700x700.jpg?v=1629226109",
+        "price": 3000 ,
+        "charge": 100,
+        "quantity" :0
+    },
+   
+    {
+        
+        "name": "Dwarf Jade",
+        "img": "https://morningchores.com/wp-content/uploads/2022/03/dwarf-jade-bonsai-800x662.jpg",
+        "price": 3000 ,
+        "charge": 100,
+        "quantity" :0
+    }
+
+   
+]

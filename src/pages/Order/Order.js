@@ -5,7 +5,7 @@ const Order = () => {
     const products = useLoaderData();
     return (
         <div>
-            <h4>Order length: {products.length}</h4>
+            <h1>Order </h1>
 
         </div>
     );

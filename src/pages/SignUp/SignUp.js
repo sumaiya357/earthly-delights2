@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const SignUp = () => {
@@ -11,6 +11,9 @@ const SignUp = () => {
    
     // SIGNUP ERROR
     const [signupErr, setSignupErr] = useState('')
+
+    //navigate to home page after login
+    const navigate = useNavigate();
 
     const handleSignUp = data =>{
         console.log(data)
@@ -25,7 +28,9 @@ const SignUp = () => {
                 displayName: data.name
             }
             updateUser(userInfo)
-            .then(() => {})
+            .then(() => {
+                navigate('/'); //got to home page
+            })
             .catch(err => console.log(err));
             
         })

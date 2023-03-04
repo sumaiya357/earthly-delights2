@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom"
 import Main from "../../Layout/Main"
+import OrderLayout from "../../Layout/OrderLayout"
 import About from "../../pages/About/About"
 import Home from "../../pages/Home/Home/Home"
 import ShopAllItems from "../../pages/Home/Home/Shop/ShopAllItems"
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                loader: () => fetch('http://localhost:5000/product'),
+                loader: () => fetch('http://localhost:5000/products'),
                 element: <Home></Home>
             },
 
@@ -27,15 +28,10 @@ const router = createBrowserRouter([
             },
             {
                 path: '/shop',
-              
+                loader: () => fetch('http://localhost:5000/products'),
                 element: <PrivateRoute><ShopAllItems></ShopAllItems></PrivateRoute>
             },
 
-            {
-                path: '/order',
-                loader: () => fetch('http://localhost:5000/product'),
-                element: <Order></Order>
-            },
 
             {
                 path: '/login',
@@ -46,9 +42,19 @@ const router = createBrowserRouter([
                 path: '/signup',
                 element: <SignUp></SignUp>
             }
-
+        ]
+    },
+    {
+        path: '/order',
+        element: <PrivateRoute> <OrderLayout></OrderLayout> </PrivateRoute>,
+        children: [
+            {
+                path:'/order',
+                element: <Order></Order>
+            }
         ]
     }
+
 ])
 
 export default router;

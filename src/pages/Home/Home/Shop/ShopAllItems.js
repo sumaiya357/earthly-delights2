@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { addToDb, getStoredCart } from '../../../../utilities/fakedb';
+import Bonsai from '../../../categoryPages/Bonsai/Bonsai';
+import Flowers from '../../../categoryPages/Flower/Flowers';
+import Fruits from '../../../categoryPages/Fruit/Fruits';
+import Indoors from '../../../categoryPages/Indoor/Indoors';
 import Cart from '../Cart/Cart'
 import InfoCard from '../InfoCards/InfoCard';
 import NewArrivalCard from '../NewArrivalCards/NewArrivalCard';
@@ -11,7 +15,35 @@ const ShopAllItems = () => {
 
     const [cart, setCart] = useState([])
 
+
+    //------------------ PRODUCTS ------------ //
+    const products = useLoaderData();
+
+    useEffect( () => {
+        // console.log('local storage first line',products)
+        const storedCart = getStoredCart();
+        const savedCart =[];
+        console.log(storedCart);
+        for(const id in storedCart){
+            // console.log(id)
+             const addedProduct = products?.find(product => 
+                product._id === id)
+                //product.id === id)
+             console.log(addedProduct)
+             if(addedProduct){
+                const quantity = storedCart[id];
+                addedProduct.quantity = quantity;
+                 savedCart.push(addedProduct)
+             }
+        }
+         setCart(savedCart);
+             
+    }, [products])
+
+
+
        // -------------- BEST SELLING PRODUCT -------------
+
        const [bestSell, setBestSell] = useState([]);
        useEffect(() => {
            fetch('BestSell.json')
@@ -20,26 +52,7 @@ const ShopAllItems = () => {
        })
 
 
-    //    useEffect( () => {
-    //     // console.log('local storage first line',products)
-    //     const storedCart = getStoredCart();
-    //     const savedCart =[];
-    //     console.log(storedCart);
-    //     for(const id in storedCart){
-    //         // console.log(id)
-    //          const addedProduct = bestSell?.find(product => 
-    //             product.id === id)
-    //             //product.id === id)
-    //          console.log(addedProduct)
-    //          if(addedProduct){
-    //             const quantity = storedCart[id];
-    //             addedProduct.quantity = quantity;
-    //              savedCart.push(addedProduct)
-    //          }
-    //     }
-    //      setCart(savedCart);
-             
-    // }, [bestSell])
+
 
 
        const handleBestSellimg = (selectedProduct) => {
@@ -63,16 +76,16 @@ const ShopAllItems = () => {
     }
 
 
-    //------------ NEW ARRIVALS-----------
+    //------------ // NEW ARRIVALS //----------------
 
-    // const [newarrival, setNewArrival] = useState([]);
+    const [newarrival, setNewArrival] = useState([]);
 
-    // useEffect(() => {
-    //     fetch('NewArrivals.json')
-    //         .then(res => res.json())
-    //         .then(data => setNewArrival(data))
+    useEffect(() => {
+        fetch('NewArrivals.json')
+            .then(res => res.json())
+            .then(data => setNewArrival(data))
 
-    // })
+    })
 
 
     // useEffect(() =>{
@@ -96,30 +109,60 @@ const ShopAllItems = () => {
     // },  [products])
 
     
-    //--------- OUR PRODUCT -------------//
-   const products = useLoaderData();
+   
+  
+    
+    
 
-    useEffect( () => {
-        // console.log('local storage first line',products)
-        const storedCart = getStoredCart();
-        const savedCart =[];
-        console.log(storedCart);
-        for(const id in storedCart){
-            // console.log(id)
-             const addedProduct = products?.find(product => 
-                product._id === id)
-                //product.id === id)
-             console.log(addedProduct)
-             if(addedProduct){
-                const quantity = storedCart[id];
-                addedProduct.quantity = quantity;
-                 savedCart.push(addedProduct)
-             }
-        }
-         setCart(savedCart);
-             
-    }, [products])
-     
+
+
+    // ----------// FLOWERS //----------------
+
+
+    
+    const [flowers, setFlowers] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/flowers')
+            .then(res => res.json())
+            .then(data => setFlowers(data))
+
+    })
+
+
+
+    // ----------// Fruit //----------------
+
+    const [fruits, setFruits] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/fruits')
+            .then(res => res.json())
+            .then(data => setFruits(data))
+
+    })
+
+    // ----------// INDOOR //----------------
+
+    const [indoors, setIndoors] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/indoors')
+            .then(res => res.json())
+            .then(data => setIndoors(data))
+
+    })
+    // ----------// BONSAI //----------------
+
+    const [bonsai, setBonsai] = useState([]);
+
+    useEffect(() => {
+        fetch('Bonsai.json')
+            .then(res => res.json())
+            .then(data => setBonsai(data))
+
+    })
+
 
 
     const handleAddToCart = (selectedProduct) => {
@@ -141,21 +184,8 @@ const ShopAllItems = () => {
         addToDb(selectedProduct._id);
 
     }
-    //     let newCart = []
-    //     const exist = cart.find( product => product.id === selectedProduct.id )
-    //     if(!exist){
-    //         selectedProduct.quantity =1;
-    //         newCart = [...cart, selectedProduct]
-    //     }
 
-    //    else{
-    //     const rest = cart.filter(product => product.id !== selectedProduct.id);
-    //     exist.quantity = exist.quantity + 1;
-    //     newCart =[...rest, exist]
-    //    }
-    //     setCart(newCart)
-    //     addToDb(selectedProduct.id)
-    // }
+
 
 
     return (
@@ -163,12 +193,13 @@ const ShopAllItems = () => {
             {/* className='grid grid-cols-2 lg:grid-cols-2  p-5' */}
 
             <div>
+                    {/* -----------//OurPRODUCT //---------------- */}
                 <div >
-                    <h4 className='bg-green-700 text-primary-content lg:text-3xl md:text-xl mt-5 mb-12 p-3'>Our Product</h4>
+                    <h4 className='bg-green-700 text-primary-content lg:text-3xl md:text-xl mt-5 mb-12 p-3 flex justify-center'>Our Product</h4>
 
 
                     <div className='flex justify-center'>
-                        <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-x-10 gap-x-24 gap-y-4 mb-10 p-5'>
+                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-x-24 gap-y-4 mb-10 p-5 '>
                             {
                                 products?.map(product => <Product
                                     key={product._id}
@@ -182,7 +213,7 @@ const ShopAllItems = () => {
 
                 </div>
 
-                {/* BEST SELLING PRODUCT */}
+                {/* -----------//BEST SELLING PRODUCT //---------------- */}
 
                
                 <div >
@@ -206,19 +237,111 @@ const ShopAllItems = () => {
                 </div>
 
 
-                {/* NEW ARRIVALS */}
+                {/* --------// NEW ARRIVALS //----------- */}
 
                 <div>
                     <h4 className='bg-green-700 text-primary-content lg:text-3xl md:text-xl mt-5 mb-12 p-5 mt-20'>New Arrivals of 2023</h4>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-36 gap-y-4 mb-10 p-5'>
-                        {/* {
+                        {
                             newarrival.map(newArrivalProduct => <NewArrivalCard
                                 key={newArrivalProduct.id}
                                 newArrivalProduct={newArrivalProduct}
                                 handleAddToCart={handleAddToCart}></NewArrivalCard>)
-                        } */}
+                        } 
                     </div>
                 </div>
+
+
+
+                {/*-------------// <Flower></Flower>//------------------- */}
+
+                <div id='flower' >
+                   <h4 className='bg-gray-200 text-green-700 lg:text-3xl md:text-xl mt-5 mb-12 p-3 flex justify-center '>Flower Collection</h4>
+                    <div className='flex justify-center'>
+                        <div className ='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-x-24 gap-y-4 mb-10 p-5'> 
+                        {
+                                flowers.map(flower => <Flowers
+
+                                    key={flower.id}
+                                    flower={flower}
+                                    handleAddToCart={handleBestSellimg}
+                                    >
+
+
+                                </Flowers>)
+                            } 
+            
+                        </div>
+                   </div> 
+             </div>
+
+
+                {/*-------------// <FRUIT> //------------------- */}
+
+                <div  id='fruit'>
+                   <h4 className='bg-gray-200 text-green-700 lg:text-3xl md:text-xl mt-5 mb-12 p-3 flex justify-center text-green'>Fruit Collection</h4>
+                    <div className='flex justify-center'>
+                        <div className ='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-x-24 gap-y-4 mb-10 p-5'>
+                           {
+                                fruits?.map(fruit => <Fruits
+                                    key={fruit._id}
+                                    fruit={fruit}
+                                    // handleAddToCart={handleAddToCart}
+                                >
+                                </Fruits>)
+                            }
+            
+                        </div>
+                    </div>
+              </div>
+
+
+                 {/*-------------// < INDOOR > //------------------- */}
+
+                 <div  id='indoor'>
+                   <h4 className='bg-gray-200 text-green-700 lg:text-3xl md:text-xl mt-5 mb-12 p-3 flex justify-center text-green'>Indoor Collection</h4>
+                    <div className='flex justify-center'>
+                        <div className ='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-x-24 gap-y-4 mb-10 p-5'>
+                           {
+                                indoors?.map(indoor => <Indoors
+                                    key={indoor._id}
+                                    indoor={indoor}
+                                    handleAddToCart={handleAddToCart}
+                                >
+                                </Indoors>)
+                            }
+            
+                        </div>
+                    </div>
+              </div>
+
+              
+
+                {/*-------------// <BONSAI> //------------------- */}
+
+                <div  id='bonsai'>
+                   <h4 className='bg-gray-200 text-green-700 lg:text-3xl md:text-xl mt-5 mb-12 p-3 flex justify-center text-green'>Bonsai Collection</h4>
+                    <div className='flex justify-center'>
+                        <div className ='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-x-24 gap-y-4 mb-10 p-5'>
+                           {
+                                bonsai?.map(bonsai => <Bonsai
+                                    key={bonsai._id}
+                                    bonsai={bonsai}
+                                    handleAddToCart={handleAddToCart}
+                                >
+                                </Bonsai>)
+                            }
+            
+                        </div>
+                    </div>
+              </div>
+
+
+
+
+               
+
+
             </div>
 
 
