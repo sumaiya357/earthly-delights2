@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import { NavHashLink as Link } from 'react-router-hash-link';
 // import flower from '../../Home/Home/Shop/ShopAllItems'
 
@@ -20,7 +19,7 @@ const Category = () => {
                     <Link to='/vegetables' className='mb-4 font-bold font-serif'>Vegetables</Link> 
                      
                     <Link to='/seeds' className='mb-4 font-bold font-serif'>Seeds</Link> 
-                   
+                
                     </>
                 </ul>
         </div>

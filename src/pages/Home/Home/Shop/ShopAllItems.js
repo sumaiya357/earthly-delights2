@@ -15,6 +15,7 @@ const ShopAllItems = () => {
 
     const [cart, setCart] = useState([])
 
+    // const[deletProduct, setDeletProduct] = useState(null);
 
     //------------------ PRODUCTS ------------ //
     const products = useLoaderData();
