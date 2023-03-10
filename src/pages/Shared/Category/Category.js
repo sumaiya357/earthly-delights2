@@ -16,7 +16,7 @@ const Category = () => {
                     <Link to='/#bonsai' className='mb-4 font-bold font-serif'>Bonsai Plant</Link>  
                     <Link to='/herbal' className='mb-4 font-bold font-serif'>Herbal Plant</Link> 
                     <Link to='/spices' className='mb-4 font-bold font-serif'>Spices Plant</Link> 
-                    <Link to='/vegetables' className='mb-4 font-bold font-serif'>Vegetables</Link> 
+                    <Link to='/vegetables' className='mb-4 font-bold font-serif'>Accessories</Link> 
                      
                     <Link to='/seeds' className='mb-4 font-bold font-serif'>Seeds</Link> 
                 

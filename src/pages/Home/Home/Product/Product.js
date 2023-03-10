@@ -15,6 +15,10 @@ const Product = ( props ) => {
         setDeletProduct(null)
     }
 
+    const{refetch} = useQuery({
+
+    })
+    
     const handleDeleteProduct = product => {
       fetch(`http://localhost:5000/products/${product._id}`,{
       method: 'DELETE',
@@ -29,9 +33,7 @@ const Product = ( props ) => {
       })
     }
 
-    const{refetch} = useQuery({
-
-    })
+    
   
     return (
         <div>

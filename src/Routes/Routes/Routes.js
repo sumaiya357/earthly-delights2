@@ -1,17 +1,21 @@
 import { createBrowserRouter } from "react-router-dom"
 import Main from "../../Layout/Main"
-import OrderLayout from "../../Layout/OrderLayout"
+
 import About from "../../pages/About/About"
 import AddProduct from "../../pages/AddProduct/AddProduct"
 import Home from "../../pages/Home/Home/Home"
-import MyOrder from "../../pages/Home/Home/Order/MyOrder/MyOrder"
+
 import Order from "../../pages/Home/Home/Order/Order"
 import ShopAllItems from "../../pages/Home/Home/Shop/ShopAllItems"
 import Login from "../../pages/Login/Login"
 
 import SignUp from "../../pages/SignUp/SignUp"
 import PrivateRoute from "../PrivateRoute/PrivateRoute"
+import DashboardLayout from "../../Layout/DashoardLayout"
+import Dashboard from "../../pages/Home/Home/Order/Dashboard/Dashboard"
 
+import errImg from '../../Assets/Images/errImg4.jpg'
+import MyOrder from "../../pages/Home/Home/Order/MyOrder/MyOrder"
 const router = createBrowserRouter([
     {
         path: '/',
@@ -43,22 +47,43 @@ const router = createBrowserRouter([
                 path: '/signup',
                 element: <SignUp></SignUp>
             }
+            ,
+
+            {
+                path: '/order',
+                element: <Order></Order>
+            }
         ]
     },
     {
-        path: '/order',
-        element: <PrivateRoute> <OrderLayout></OrderLayout> </PrivateRoute>,
+        path: '/dashboard',
+        element: <PrivateRoute> <DashboardLayout></DashboardLayout> </PrivateRoute>,
         children: [
             {
-                path:'/order',
-                element: <MyOrder></MyOrder>
+                path:'/dashboard',
+                element: <Dashboard></Dashboard>
             }
             ,
-            {
-                path:'/order/addProduct',
+             {
+                path:'/dashboard/addProduct',
                 element: <AddProduct></AddProduct>
-            }
+             }
+            ,
+             {
+                path:'/dashboard/myorder',
+                element: <MyOrder></MyOrder>
+             }
         ]
+    },
+    {
+        path: '/*',
+        element: <div  className="grid h-screen place-items-center" >
+            {/* <p>Page not found</p> */}
+            <figure >
+                <img className="object-fill h-96 w-96" src={errImg} alt='errorImage'/>
+
+            </figure>
+                 </div>
     }
 
 ])
