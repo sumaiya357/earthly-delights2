@@ -1,8 +1,10 @@
 import { faDeleteLeft, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import ConfirmModal from '../../../Shared/ConfirmModal/ConfirmModal';
 import { useQuery } from '@tanstack/react-query'
+import useAdmin from '../../../../hooks/useAdmin';
+import { AuthContext } from '../../../../Context/AuthProvider';
 
 const Product = ( props ) => {
     const { name, img, price } = props.product;
@@ -14,6 +16,10 @@ const Product = ( props ) => {
     const closeModal = () => {
         setDeletProduct(null)
     }
+
+    const {user} = useContext(AuthContext);
+    const [isAdmin] = useAdmin(user?.email)
+
 
     const{refetch} = useQuery({
 
@@ -50,7 +56,13 @@ const Product = ( props ) => {
                     </div>
 
                     <div>
-                    <label onClick={() => setDeletProduct(props.product)} htmlFor="delet-modal" className="btn btn-error  btn-sm text-white">Delet  <FontAwesomeIcon className='ml-2' icon={faDeleteLeft}></FontAwesomeIcon></label>
+
+                    {
+                        isAdmin && <>
+                        <label onClick={() => setDeletProduct(props.product)} htmlFor="delet-modal" className="btn btn-error  btn-sm text-white">Delet  <FontAwesomeIcon className='ml-2' icon={faDeleteLeft}></FontAwesomeIcon></label>
+                         </>
+                       }
+                    
              
                     </div>
                 </div>

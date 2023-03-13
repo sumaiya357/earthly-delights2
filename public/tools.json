@@ -1,0 +1,111 @@
+[
+    {
+        
+        "name": "Terracotta Pots",
+        "img": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51PjjnJTRML._AC_SX466_.jpg",
+        "price": 100 ,
+        "charge": 100,
+        "quantity" :0
+    },
+    {
+        "name": "Mini Graden  Set ",
+        "img": "https://fixit.com.bd/wp-content/uploads/2021/12/18-528.jpg",
+        "price": 4000,
+        "quantity": 0,
+        "charge": 100
+    },
+  
+    {
+        
+        "name": "Tabletop planter",
+        "img": "https://cdn3.mydukaan.io/app/image/700x700/?url=https://dukaan-core-file-service.s3.ap-southeast-1.amazonaws.com/upload_file_service/9fb683bc-21c0-4086-99b3-46f036fb21d8/copyof3o6a8895-1-1.jpg",
+        "price": 3000 ,
+        "charge": 100,
+        "quantity" :0
+    },
+    {
+        
+        "name": "Office Desk Plants ",
+        "img": "https://nurserynisarga.in/wp-content/uploads/2019/09/6.jpg",
+        "price": 3000 ,
+        "charge": 100,
+        "quantity" :0
+    },
+    {
+        
+        "name": "Stella White TableTop",
+        "img": "https://cdn3.mydukaan.io/app/image/700x700/?url=https://dukaan-core-file-service.s3.ap-southeast-1.amazonaws.com/upload_file_service/dc126348-6437-4ffd-8912-eff622929608/1306-b-1.jpg",
+        "price": 3000 ,
+        "charge": 100,
+        "quantity" :0
+    },
+   
+    {
+        
+        "name": "Garden Axe",
+        "img": "https://www.wgmltd.co.uk/res/Foresty-Axe-Orange.jpg",
+        "price": 3000 ,
+        "charge": 100,
+        "quantity" :0
+    },
+    {
+        
+        "name": "Gardening gloves",
+        "img": "https://www.wgmltd.co.uk/res/11500-20.jpg",
+        "price": 3000 ,
+        "charge": 100,
+        "quantity" :0
+    },
+   
+    {
+        
+        "name": "Rake ",
+        "img": "https://www.merinal.co.uk/media/catalog/product/cache/9c8d4349075abceb864352fa05bb20e6/h/i/hil92066040.png",
+        "price": 3000 ,
+        "charge": 100,
+        "quantity" :0
+    },
+    {
+        "name": "Gardening fork",
+        "img": "https://www.wgmltd.co.uk/res/8952-20.jpg",
+        "price": 4000,
+        "quantity": 0,
+        "charge": 100
+    }
+    ,
+    {
+        "name": "Garden Boots",
+        "img": "https://www.woodsideproducts.co.uk/media/catalog/product/cache/7c41bf26abe504c73f1e9b87eab3ec7c/1/H/1HKALQO0K40.jpg",
+        "price": 4000,
+        "quantity": 0,
+        "charge": 100
+    }
+    ,
+    {
+        "name": "Pruners ",
+        "img": "https://cdn.shopify.com/s/files/1/0600/8936/8763/products/WNG-Nano07-New_2_700x700.jpg?v=1650610814",
+        "price": 4000,
+        "quantity": 0,
+        "charge": 100
+    }
+    ,
+    {
+        "name": "Shovel  ",
+        "img": "https://cdna.4imprint.ca/prod/700/582521.jpg",
+        "price": 4000,
+        "quantity": 0,
+        "charge": 100
+    }
+    ,
+    {
+        "name": "Wheelbarrow  ",
+        "img": "https://gm8-group.gumlet.io/media/catalog/product/cache/967e6dea8a1819aa07166b9ed50b8109/o/r/original_organics_folding_space_saving_wheelbarrow.jpg",
+        "price": 4000,
+        "quantity": 0,
+        "charge": 100
+    }
+ 
+    
+
+   
+]

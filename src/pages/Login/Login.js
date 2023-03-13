@@ -13,13 +13,17 @@ const Login = () => {
 
     const location = useLocation();
 
-    const navigate = useNavigate();
-
-    const from = location.state?.from?.pathname || '/'
-
     const [loginUserEmail, setLoginUserEmail] = useState('');
     const [token] = useToken(loginUserEmail)
+    
+    const navigate = useNavigate();
+  
+    const from = location.state?.from?.pathname || '/';
 
+    
+    if(token){
+        navigate(from, {replace: true})
+    }
 
     const handleLogin = data =>{
         console.log(data)
@@ -28,8 +32,9 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             console.log(user)
-            setLoginUserEmail(data.email)
-            navigate(from, {replace: true})
+            setLoginUserEmail(data.email);
+            // navigate('/')
+            
         })
         .catch(error =>{ 
             console.log(error.message)

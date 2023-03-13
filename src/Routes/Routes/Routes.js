@@ -12,10 +12,16 @@ import Login from "../../pages/Login/Login"
 import SignUp from "../../pages/SignUp/SignUp"
 import PrivateRoute from "../PrivateRoute/PrivateRoute"
 import DashboardLayout from "../../Layout/DashoardLayout"
-import Dashboard from "../../pages/Home/Home/Order/Dashboard/Dashboard"
+
 
 import errImg from '../../Assets/Images/errImg4.jpg'
 import MyOrder from "../../pages/Home/Home/Order/MyOrder/MyOrder"
+
+import AllUser from "../../pages/Home/Home/Order/AllUser/AllUser"
+
+import Dashboard from "../../pages/Home/Home/Order/Dashboard/Dashboard"
+import AdminRoute from "./AdminRoute/AdminRoute"
+
 const router = createBrowserRouter([
     {
         path: '/',
@@ -62,6 +68,11 @@ const router = createBrowserRouter([
             {
                 path:'/dashboard',
                 element: <Dashboard></Dashboard>
+            }
+            ,
+            {
+                path:'/dashboard/alluser',
+                element: <AdminRoute><AllUser></AllUser></AdminRoute>
             }
             ,
              {
