@@ -49,20 +49,6 @@ const ShopAllItems = () => {
     }, [products])
 
 
-
-    // -------------- BEST SELLING PRODUCT -------------
-
-    const [bestSell, setBestSell] = useState([]);
-    useEffect(() => {
-        fetch('BestSell.json')
-            .then(res => res.json())
-            .then(data => setBestSell(data))
-    })
-
-
-
-
-
     const handleBestSellimg = (selectedProduct) => {
         // console.log('clicked');
         // console.log(selectedProduct);
@@ -84,12 +70,22 @@ const ShopAllItems = () => {
     }
 
 
+     // -------------- BEST SELLING PRODUCT -------------
+
+     const [bestSell, setBestSell] = useState([]);
+     useEffect(() => {
+         fetch('http://localhost:5000/bestsell')
+             .then(res => res.json())
+             .then(data => setBestSell(data))
+     })
+
+
     //------------ // NEW ARRIVALS //----------------
 
     const [newarrival, setNewArrival] = useState([]);
 
     useEffect(() => {
-        fetch('NewArrivals.json')
+        fetch('http://localhost:5000/newarrival')
             .then(res => res.json())
             .then(data => setNewArrival(data))
 

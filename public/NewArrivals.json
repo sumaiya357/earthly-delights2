@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        
         "name": "Sombrero Lemon Yellow Coneflower",
         "img": "https://www.mckaynursery.com/common/products/images/large/Coneflower-Sombrero-Lemon-Yellow(1).jpg",
         "price": 3000,
@@ -8,7 +8,7 @@
         "quantity" :0
     },
     {
-        "id": 2,
+        
         "name": "Yukon Sun Rose",
         "img": "https://i0.wp.com/savvygardening.com/wp-content/uploads/2021/12/49th-parallel-yukon-sun-rose.jpg?resize=600%2C611&ssl=1",
         "price": 1000,
@@ -16,7 +16,7 @@
         "quantity" :0
     },
     {
-        "id": 3,
+        
         "name": "Ruby Ruffle Patio Peach",
         "img": "http://cdn.shopify.com/s/files/1/0062/8532/8445/products/Prunus_RubyRuffles_BB_600x600_5be44e08-2c1f-4c5b-a4cc-33d069d66373_grande.jpg?v=1645452948",
         "price": 2000,
@@ -24,7 +24,7 @@
         "quantity" :0
     },
     {
-        "id": 4,
+        
         "name": "Purple Dome",
         "img": "https://www.mckaynursery.com/common/products/images/main/aster-purple-dome(2).jpg",
         "price": 700,

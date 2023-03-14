@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        
         "name": "Bonsai",
         "img": "https://assets.winni.in/product/primary/2014/6/30755.jpeg?dpr=1&w=500",
         "price": 3000,
@@ -8,7 +8,7 @@
         "quantity" :0
     },
     {
-        "id": 2,
+        
         "name": "Lotus",
         "img": "https://i.pinimg.com/736x/f7/3c/72/f73c72d63b2b0821e8ebc72ab5ff343e.jpg",
         "price": 1000,
@@ -16,7 +16,7 @@
         "quantity" :0
     },
     {
-        "id": 3,
+        
         "name": "Pink Rose",
         "img": "https://www.thefragrantrosecompany.co.uk/media/catalog/product/cache/92cbed5f29d6c3826fd0716e473f2bfa/m/i/millie-garden-rose-1.jpg",
         "price": 2000,
@@ -24,7 +24,7 @@
         "quantity" :0
     },
     {
-        "id": 4,
+        
         "name": "Black Berry",
         "img": "https://www.tomorrowsharvest.com/store/pub/media/catalog/product/cache/49e19764d17a195b05fde2ec48914513/2/2/2248_jellybeanblueberry-closeup_1.jpg",
         "price": 3000 ,
