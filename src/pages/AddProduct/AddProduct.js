@@ -30,9 +30,14 @@ const AddProduct = () => {
                 const product = {
                     name: data.name,
                     type:data.type,
-                    img: imgData.data.url
+                    img: imgData.data.url,
+                    price: data.price,
+                    quantity: 0,
+                    charge: data.charge
+                    
 
                 }
+                console.log(product)
                 //SAVE Product info to DB
                 fetch('http://localhost:5000/addedProducts', {
                     method:'POST',
@@ -106,6 +111,51 @@ const AddProduct = () => {
 
                     {/* ERROR MESSAGE DISPALYED */}
                     {errors.image && <p className='text-red-500'>{errors.image?.message}</p>}
+
+                </div>
+
+               {/* -----------PRICE //---------------------- */}
+
+                <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text">Price</span>
+                    </label>
+
+                    <input type="number"{...register("price", { required: "Price required" })}
+                        className="input input-bordered w-full max-w-xs " />
+
+                    {/* ERROR MESSAGE DISPALYED */}
+                    {errors.price && <p className='text-red-500'>{errors.price?.message}</p>}
+
+                </div>
+
+                 {/* -----------SHIPPING CHARGE //---------------------- */}
+
+                 <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text">Shipping Charge</span>
+                    </label>
+
+                    <input type="number"{...register("charge", { required: "Shipping charge required" })}
+                        className="input input-bordered w-full max-w-xs " />
+
+                    {/* ERROR MESSAGE DISPALYED */}
+                    {errors.charge && <p className='text-red-500'>{errors.charge?.message}</p>}
+
+                </div>
+
+                {/* // -------------- Quantity // ----------- */}
+
+                 <div className="form-control w-full max-w-xs" >  {/*style={{ display:"none" }}  */}
+                    <label className="label">
+                        <span className="label-text">Quantity</span>
+                    </label>
+
+                    <input  defaultValue={0} disabled type="text"{...register("quantity")}
+                        className="input input-bordered w-full max-w-xs " />
+
+                    {/* ERROR MESSAGE DISPALYED */}
+                    {errors.quantity && <p className='text-red-500'>{errors.quantity?.message}</p>}
 
                 </div>
 

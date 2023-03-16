@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import NewArrivalCard from './NewArrivalCard';
+import React from 'react';
+
 
 const NewArrivalCards = () => {
 
-    const [newarrival, setNewArrival] = useState([]);
+    // const [newarrival, setNewArrival] = useState([]);
 
-    useEffect( () => {
-        fetch('NewArrivals.json')
-        .then( res => res.json())
-        .then( data => setNewArrival(data))
+    // useEffect( () => {
+    //     fetch('NewArrivals.json')
+    //     .then( res => res.json())
+    //     .then( data => setNewArrival(data))
 
-    })
+    // })
     return (
         <div>
             {/* <h4 className='bg-green-700 text-primary-content lg:text-3xl md:text-xl mt-5 mb-12 p-5'>New Arrivals of 2023</h4>

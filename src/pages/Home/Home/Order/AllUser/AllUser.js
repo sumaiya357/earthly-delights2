@@ -1,7 +1,6 @@
 
-import React, { useContext } from 'react';
 import { useQuery } from '@tanstack/react-query'
-import { AuthContext } from '../../../../../Context/AuthProvider';
+
 import toast from 'react-hot-toast';
 
 

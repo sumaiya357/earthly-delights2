@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import Category from '../../../Shared/Category/Category';
 import InfoCard from './InfoCard';
 
 const InfoCards = () => {

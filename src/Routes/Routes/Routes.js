@@ -21,6 +21,9 @@ import AllUser from "../../pages/Home/Home/Order/AllUser/AllUser"
 
 import Dashboard from "../../pages/Home/Home/Order/Dashboard/Dashboard"
 import AdminRoute from "./AdminRoute/AdminRoute"
+import AuctionBody from "../../auction/AuctionBody"
+import AuctionCards from "../../auction/AuctionCards/AuctionCards"
+
 
 const router = createBrowserRouter([
     {
@@ -59,6 +62,17 @@ const router = createBrowserRouter([
                 path: '/order',
                 element: <Order></Order>
             }
+            ,
+
+            {
+                path: '/addAuction',
+                element: <AuctionBody></AuctionBody>
+            },
+            {
+                path: '/auction',
+                element: <AuctionCards></AuctionCards>
+            }
+           
         ]
     },
     {
@@ -83,7 +97,7 @@ const router = createBrowserRouter([
              {
                 path:'/dashboard/myorder',
                 element: <MyOrder></MyOrder>
-             }
+             } 
         ]
     },
     {

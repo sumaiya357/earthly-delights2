@@ -1,0 +1,430 @@
+ 
+ //---------ADDAuc---------
+ import React, { useEffect, useRef, useState } from 'react';
+import { Form, Modal } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
+import CountdownTime from '../CountdownTime';
+
+const AddAuc = () => {
+   
+
+              
+
+const { register, formState: { errors }, handleSubmit } = useForm();
+
+
+
+
+    const imgHostKey = process.env.REACT_APP_imgbb_key;
+    // console.log(imgHostKey);
+
+    const [showForm, setShowForm] = useState(false);
+
+    const openForm = () => setShowForm(true);
+    const closeForm = () => setShowForm(false);
+
+    const submitForm = async (e) => {
+        e.preventDefault();
+        // setError('');
+    }
+
+   
+        const handleAddProduct = data => {
+            // console.log(data)
+            const image = data.image[0];
+            // console.log(data.image[0])
+
+            const formData = new FormData();
+            formData.append('image', image)
+            
+            const url = `https://api.imgbb.com/1/upload?key=${imgHostKey}`;
+
+            fetch(url, {
+                method: 'POST',
+                body: formData
+            })
+                .then(res => res.json())
+                .then(imgData => {
+                    // console.log(imgData)
+
+                    if (imgData.success) {
+                        console.log(imgData.data.url);
+                        const product = {
+                            name: data.name,
+                            type: data.type,
+                            img: imgData.data.url,
+                            price: data.price,
+                            duration: data.time,
+                            description: data.desc
+
+
+                        }
+                        console.log(product)
+                        //SAVE Product info to DB
+                        // fetch('http://localhost:5000/addedProducts', {
+                        //     method:'POST',
+                        //     headers:{
+                        //         'content-type': 'application/json',
+                        //         authorization: `bearer ${localStorage.getItem('accessToken')}`
+                        //     },
+                        //     body: JSON.stringify(product)
+                        // })
+                        // .then(res => res.json())
+                        // .then(result=> {
+                        //     toast('Product added successfully')
+                        //     console.log(result);
+                        // })
+
+                    }
+                })
+        }
+
+
+        // const Ref = useRef(null);
+
+        // // The state for our timer
+        // const [timer, setTimer] = useState('00:00:00');
+
+
+        const getTimeRemaining = (e) => {
+            const total = Date.parse(e) - Date.parse(new Date());
+            const seconds = Math.floor((total / 1000) % 60);
+            const minutes = Math.floor((total / 1000 / 60) % 60);
+            const hours = Math.floor((total / 1000 / 60 / 60) % 24);
+            return {
+                total, hours, minutes, seconds
+            };
+        }
+
+
+        // const startTimer = (e) => {
+        //     let { total, hours, minutes, seconds }
+        //         = getTimeRemaining(e);
+        //     if (total >= 0) {
+
+        //         // update the timer
+        //         // check if less than 10 then we need to 
+        //         // add '0' at the beginning of the variable
+        //         setTimer(
+        //             (hours > 9 ? hours : '0' + hours) + ':' +
+        //             (minutes > 9 ? minutes : '0' + minutes) + ':'
+        //             + (seconds > 9 ? seconds : '0' + seconds)
+        //         )
+        //     }
+        // }
+
+
+        const clearTimer = (e) => {
+
+            // If you adjust it you should also need to
+            // adjust the Endtime formula we are about
+            // to code next    
+            // setTimer('00:00:00');
+
+            // If you try to remove this line the 
+            // updating of timer Variable will be
+            // after 1000ms or 1sec
+            // if (Ref.current) clearInterval(Ref.current);
+            // const id = setInterval(() => {
+            //     startTimer(e);
+            // }, 1000)
+            // Ref.current = id;
+        }
+
+        const getDeadTime = () => {
+            let deadline = new Date();
+
+            // This is where you need to adjust if 
+            // you entend to add more time
+            deadline.setSeconds(deadline.getSeconds() + 172800);
+            return deadline;
+        }
+
+        // We can use useEffect so that when the component
+        // mount the timer will start as soon as possible
+
+        // We put empty array to act as componentDid
+        // mount only
+        // useEffect(() => {
+        //     clearTimer(getDeadTime());
+        // }, []);
+
+        // Another way to call the clearTimer() to start
+        // the countdown is via action event from the
+        // button first we create function to be called
+        // by the button
+        const onClickReset = () => {
+            clearTimer(getDeadTime());
+        }
+        return (
+            <div className=' '>
+
+                {/* <div className="col d-flex justify-content-center my-3"> */}
+                    <div onClick={openForm} className="btn btn-outline-secondary mx-2">
+                        + Auctions
+                    </div>
+                    
+                        <form onSubmit={handleSubmit(handleAddProduct)}>
+
+                            {/* -----------------//NAME //---------------------- */}
+
+                            <div className="form-control w-full max-w-xs">
+                               <Form.Group>
+                                <Form.Label>Item Name</Form.Label>
+                                <Form.Control type='name' required />
+                               </Form.Group>
+
+                                {/* ERROR MESSAGE DISPALYED */}
+                                {errors.name && <p className='text-red-500'>{errors.name?.message}</p>}
+
+                            </div>
+
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text">Name</span>
+                                </label>
+
+                                <input type="text"{...register("name", { required: "UserName required" })}
+                                    className="input input-bordered w-full max-w-xs " />
+
+                                {/* ERROR MESSAGE DISPALYED */}
+                                {errors.name && <p className='text-red-500'>{errors.name?.message}</p>}
+
+                            </div>
+
+
+                            {/* ----------------------//PHOTO//------------------ */}
+
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text">Photo</span>
+                                </label>
+
+                                <input type="file"{...register("image", { required: "Photo required" })}
+                                    className="input input-bordered pt-2  w-full max-w-xs " />
+
+                                {/* ERROR MESSAGE DISPALYED */}
+                                {errors.image && <p className='text-red-500'>{errors.image?.message}</p>}
+
+                            </div>
+
+                            {/* -----------// Start PRICE //---------------------- */}
+
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text">Start Price</span>
+                                </label>
+
+                                <input type="number"{...register("price", { required: "Price required" })}
+                                    className="input input-bordered w-full max-w-xs " />
+
+                                {/* ERROR MESSAGE DISPALYED */}
+                                {errors.price && <p className='text-red-500'>{errors.price?.message}</p>}
+
+                            </div>
+
+                            {/* ----------Product Description //---------------------- */}
+
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text">Product Description</span>
+                                </label>
+
+                                <input type="text"{...register("desc", { required: "Product Description required" })}
+                                    className="input input-bordered w-full max-w-xs " />
+
+                                {/* ERROR MESSAGE DISPALYED */}
+                                {errors.charge && <p className='text-red-500'>{errors.charge?.message}</p>}
+
+                            </div>
+
+                            {/* // -------------- // Duration // ----------- */}
+
+                            <div className="form-control w-full max-w-xs" >  {/*style={{ display:"none" }}  */}
+                                <label className="label">
+                                    <span className="label-text">Duration</span>
+                                </label>
+
+                                {/* <h2>{timer}</h2>
+                            <button onClick={onClickReset}>Reset</button> */}
+
+                                {/* defaultValue={0} disabled defaultValue={timer} */}
+                                <input {...register("time", { required: "Product Duration required" })}
+
+                                    className="input input-bordered w-full max-w-xs " />
+
+                                {/* ERROR MESSAGE DISPALYED */}
+                                {errors.quantity && <p className='text-red-500'>{errors.quantity?.message}</p>}
+
+                            </div>
+
+                            <input className='btn btn-success text-white w-full max-w-xs bg-green-600 mt-5' value='Add ' type="submit" />
+
+                            {/* display signup error */}
+
+                            {/* {signupErr && <p className='text-red-500 mt-5'>{signupErr}</p>} */}
+
+                        </form>
+
+                        {/* <div className='text-center w-96 p-7 ml-64 '>
+      
+      <h3 className='font-bold text-2xl'>AUCTION</h3>
+
+      {
+          user && <AddAuc/> */}
+
+                </div>
+                );
+};
+
+  export default AddAuc;
+//-------------------- x -----------------//
+
+
+
+
+
+//CountdownTime----1
+
+  const Ref = useRef(null);
+  
+    // The state for our timer
+    const [timer, setTimer] = useState('00:00:00');
+  
+  
+    const getTimeRemaining = (e) => {
+        const total = Date.parse(e) - Date.parse(new Date());
+        const seconds = Math.floor((total / 1000) % 60);
+        const minutes = Math.floor((total / 1000 / 60) % 60);
+        const hours = Math.floor((total / 1000 / 60 / 60) % 24);
+        return {
+            total, hours, minutes, seconds
+        };
+    }
+  
+  
+    const startTimer = (e) => {
+        let { total, hours, minutes, seconds } 
+                    = getTimeRemaining(e);
+        if (total >= 0) {
+  
+            // update the timer
+            // check if less than 10 then we need to 
+            // add '0' at the beginning of the variable
+            setTimer(
+                (hours > 9 ? hours : '0' + hours) + ':' +
+                (minutes > 9 ? minutes : '0' + minutes) + ':'
+                + (seconds > 9 ? seconds : '0' + seconds)
+            )
+        }
+    }
+  
+  
+    const clearTimer = (e) => {
+  
+        // If you adjust it you should also need to
+        // adjust the Endtime formula we are about
+        // to code next    
+        // setTimer('00:00:10');
+  
+        // If you try to remove this line the 
+        // updating of timer Variable will be
+        // after 1000ms or 1sec
+        if (Ref.current) clearInterval(Ref.current);
+        const id = setInterval(() => {
+            startTimer(e);
+        }, 1000)
+        Ref.current = id;
+    }
+  
+    const getDeadTime = () => {
+        let deadline = new Date();
+  
+        // This is where you need to adjust if 
+        // you entend to add more time
+        deadline.setSeconds(deadline.getSeconds() + 200);
+        return deadline;
+    }
+  
+    // We can use useEffect so that when the component
+    // mount the timer will start as soon as possible
+  
+    // We put empty array to act as componentDid
+    // mount only
+    useEffect(() => {
+        clearTimer(getDeadTime());
+    }, []);
+  
+    // Another way to call the clearTimer() to start
+    // the countdown is via action event from the
+    // button first we create function to be called
+    // by the button
+    const onClickReset = () => {
+        clearTimer(getDeadTime());
+    }
+
+
+
+
+    //COUNTDOWN---2
+
+     const [days, setDays] = useState(0);
+    const [hours, setHours] = useState(0);
+    const [mins, setMins] = useState(0);
+    const [sec, setSec] = useState(0);
+
+    const [inputData, setInputData] = useState("17 Mar 2023");
+    const [currentDate, setCurrentDate] = useState(0);
+
+    useEffect(() => {
+        const changingDate = new Date(inputData);
+        const currentDate = new Date();
+        const totalSec = (changingDate - currentDate)/ 1000;
+
+        setDays(formatTime(Math.floor( totalSec / 36000 / 24)));
+        setHours(Math.floor( totalSec / 3600 ) % 24);
+        setMins(Math.floor( totalSec / 60 / 24 )% 60);
+        setSec(Math.floor( totalSec % 60));
+    }, [currentDate]);
+        function formatTime(time){
+            return time < 10 ? `0${time}` : time;
+        }
+   
+
+        const onChangeInput= (event) =>{
+              setInputData(event.target.value)
+        }
+        const onClickHandler =() =>{
+            setCurrentDate(inputData)
+        }
+
+        //after return
+        
+                   <div className='flex '>
+                   <div className='pr-1'>
+                        <p>{days}</p>
+                        <span>Days</span>
+                    </div>
+                    <div>
+                        <p>{hours}</p>
+                        <span>Hours</span>
+                    </div>
+                    <div className='pr-1 pl-1'>
+                        <p>{mins}</p>
+                        <span>Mins</span>
+                    </div>
+                    <div>
+                        <p>{sec}</p>
+                        <span>Sec</span>
+                    </div>
+                   </div>
+                  
+                    
+
+
+                    <div className="card-actions justify-start">
+                    <input onChange={onChangeInput} className="input input-bordered w-full max-w-xs " />
+                
+                        <button onClick={onClickHandler} className="btn btn-primary">Bid</button>
+                    </div>

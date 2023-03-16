@@ -49,25 +49,25 @@ const ShopAllItems = () => {
     }, [products])
 
 
-    const handleBestSellimg = (selectedProduct) => {
-        // console.log('clicked');
-        // console.log(selectedProduct);
-        let newCart = [];
-        const exists = cart.find(product => product._id === selectedProduct._id)
-        if (!exists) {
-            selectedProduct.quantity = 1;
-            newCart = [...cart, selectedProduct];
-        }
-        else {
-            const rest = cart.filter(product => product._id !== selectedProduct._id);
-            exists.quantity = exists.quantity + 1;
-            newCart = [...rest, exists];
-        }
+    // const handleBestSellimg = (selectedProduct) => {
+    //     // console.log('clicked');
+    //     // console.log(selectedProduct);
+    //     let newCart = [];
+    //     const exists = cart.find(product => product._id === selectedProduct._id)
+    //     if (!exists) {
+    //         selectedProduct.quantity = 1;
+    //         newCart = [...cart, selectedProduct];
+    //     }
+    //     else {
+    //         const rest = cart.filter(product => product._id !== selectedProduct._id);
+    //         exists.quantity = exists.quantity + 1;
+    //         newCart = [...rest, exists];
+    //     }
 
-        setCart(newCart);
-        addToDb(selectedProduct._id);
+    //     setCart(newCart);
+    //     addToDb(selectedProduct._id);
 
-    }
+    // }
 
 
      // -------------- BEST SELLING PRODUCT -------------
@@ -257,7 +257,7 @@ const ShopAllItems = () => {
 
                                     key={singlebestSellProduct.id}
                                     singlebestSellProduct={singlebestSellProduct}
-                                    handleAddToCart={handleBestSellimg}>
+                                    handleAddToCart={handleAddToCart}>
 
                                 </InfoCard>)
                             }
@@ -293,7 +293,7 @@ const ShopAllItems = () => {
 
                                     key={flower.id}
                                     flower={flower}
-                                    handleAddToCart={handleBestSellimg}
+                                    handleAddToCart={handleAddToCart}
                                 >
 
 
@@ -427,6 +427,8 @@ const ShopAllItems = () => {
 
             
             </div>
+
+           
         </div>
 
     );

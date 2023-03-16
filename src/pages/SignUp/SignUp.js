@@ -5,14 +5,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import login from '../../Assets/Images/loginImg/signup.png';
 import useToken from '../../hooks/useToken';
+import { getAuth, sendEmailVerification } from 'firebase/auth';
 const SignUp = () => {
 
     const { register, formState: { errors }, handleSubmit } = useForm();
 
-    const { createUser, updateUser } = useContext(AuthContext);
+    const { createUser, updateUser, verifyEmail } = useContext(AuthContext);
 
-   
-    const {user} = useContext(AuthContext)
+    const auth = getAuth();
+    // const {user} = useContext(AuthContext)
 
 
     // SIGNUP ERROR
@@ -45,6 +46,7 @@ const SignUp = () => {
                 const user = result.user;
                 console.log(user);
                 toast('User created successfully')
+                verifyEmail()
                 const userInfo = {
                     displayName: data.name
                 }
@@ -55,6 +57,8 @@ const SignUp = () => {
                          //got to home page
                     })
                     .catch(err => console.log(err));
+
+                 
 
             })
             .catch(error => {

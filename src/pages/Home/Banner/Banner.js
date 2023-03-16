@@ -1,13 +1,13 @@
 import React from 'react';
-import b1 from '../../../Assets/Images/Banner/b1.jpg'
+// import b1 from '../../../Assets/Images/Banner/b1.jpg'
 import b4 from '../../../Assets/Images/Banner/rsz_b4.jpg'
-import b6 from '../../../Assets/Images/Banner/b6.jpg'
+// import b6 from '../../../Assets/Images/Banner/b6.jpg'
 import b10 from '../../../Assets/Images/Banner/b2.jpg'
 import './Banner.css'
 import b12 from '../../../Assets/Images/Banner/b12.jpg'
 import './Banner.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faEnvelope, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 
 const Banner = () => {
@@ -18,7 +18,7 @@ const Banner = () => {
                 <div id="slide1" className=" carousel-item relative w-full">
                 
                   <div className='carousel-img'>
-                  <img  src={b4} />
+                  <img   src={b4} alt=''/>
                  </div>  
                    
                  
@@ -46,7 +46,7 @@ const Banner = () => {
 
                 <div id="slide2" className="carousel-item relative w-full">
                 <div className='carousel-img '>
-                  <img  src={b12}  />
+                  <img   src={b12}alt=''  />
                  </div> 
                     <div className="absolute flex justify-end transform -translate-y-1/2 left-5  right-5 bottom-0 ">
                         <a href="#slide1" className="btn btn-circle mr-5">❮</a>
@@ -68,7 +68,7 @@ const Banner = () => {
 
                 <div id="slide3" className="carousel-item relative w-full">
                    <div className='carousel-img'>
-                   <img src= {b10} className='w-full' />
+                   <img  src= {b10}alt='' className='w-full' />
                    </div>
                     <div className="absolute flex justify-end transform -translate-y-1/2 left-5  right-5 bottom-0">
                         <a href="#slide2" className="btn btn-circle mr-5">❮</a>

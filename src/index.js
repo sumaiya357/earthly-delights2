@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AuthProvider from './Context/AuthProvider';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+
 import {
     QueryClient,
     QueryClientProvider,
