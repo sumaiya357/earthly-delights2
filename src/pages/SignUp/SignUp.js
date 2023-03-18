@@ -5,12 +5,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import login from '../../Assets/Images/loginImg/signup.png';
 import useToken from '../../hooks/useToken';
-import { getAuth, sendEmailVerification } from 'firebase/auth';
+import { getAuth, sendEmailVerification, signInWithPopup } from 'firebase/auth';
 const SignUp = () => {
 
     const { register, formState: { errors }, handleSubmit } = useForm();
 
-    const { createUser, updateUser, verifyEmail } = useContext(AuthContext);
+    const { createUser, updateUser, verifyEmail, provider } = useContext(AuthContext);
 
     const auth = getAuth();
     // const {user} = useContext(AuthContext)
@@ -18,9 +18,6 @@ const SignUp = () => {
 
     // SIGNUP ERROR
     const [signupErr, setSignupErr] = useState('')
-
-   
-
 
     //TOKEN
     const[createdUser, setCreatedUser] = useState('')
@@ -33,7 +30,7 @@ const SignUp = () => {
         navigate('/')
      }
 
-    const handleSignUp = (data,event) => {
+    const handleSignUp = (data) => {
         // console.log(data)
         // const name =event.target.name.value;
         // const email =event.target.email.value;
@@ -56,10 +53,7 @@ const SignUp = () => {
                         // navigate('/');
                          //got to home page
                     })
-                    .catch(err => console.log(err));
-
-                 
-
+                    .catch(err => console.log(err));             
             })
             .catch(error => {
                 console.log(error)
@@ -91,6 +85,16 @@ const SignUp = () => {
             }
     }
 
+    const handleGoogle =() =>{
+        signInWithPopup(auth, provider)
+        .then((res) =>{
+            const user = res.user
+            console.log(user)
+
+        })
+        .catch(err => console.log(err))
+    }
+
 
     // const getUserToken = email =>{
     //       fetch(`http://localhost:5000/jwt?email=${email}`)
@@ -115,35 +119,28 @@ const SignUp = () => {
                 <h2 className='text-4xl text-center text-green-500'>SignUp</h2>
                 <form onSubmit={handleSubmit(handleSignUp)}>
 
-
                     <div className="form-control w-full ">
                         <label htmlFor='name'  id='name' className="label">
                             <span className="label-text text-lg">Name</span>
                         </label>
-
                         <input type="text"{...register("name", { required: "UserName required" })}
                             className="input input-bordered w-full "
                             // value={user.name} 
                             // onChange={handleInputs}
-
-                            />
-
+                           />
                         {/* ERROR MESSAGE DISPALYED */}
                         {errors.name && <p className='text-red-500'>{errors.name?.message}</p>}
-
                     </div>
 
                     <div className="form-control w-full ">
                         <label htmlFor='email' id='email' className="label">
                             <span className="label-text text-lg">Email</span>
                         </label>
-
-                        <input type="email"{...register("email", { required: "Email Address is required" })}
+                       <input type="email"{...register("email", { required: "Email Address is required" })}
                             className="input input-bordered w-full " 
                             // value={user.email} 
                             // onChange={handleInputs}
                             />
-
                         {/* ERROR MESSAGE DISPALYED */}
                         {errors.email && <p className='text-red-500'>{errors.email?.message}</p>}
 
@@ -155,21 +152,17 @@ const SignUp = () => {
                         <label htmlFor='password' id='password' className="label">
                             <span className="label-text  text-lg">Password</span>
                         </label>
-
                         <input  type="password"{...register("password", {
                             required: "Password  is required",
                             minLength: { value: 6, message: "Password must be 6 chararcters or longer " },
-                            pattern: { value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/, message: "Password must be uppercase,numbers,special char" }
+                            pattern: { value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/, message: "Password must have uppercase,numbers,special char" }
                         })}
                             className="input input-bordered w-full border border-2 border-lime  "
                             // value={user.password} 
                             // onChange={handleInputs}
                              />
-
                         {/* ERROR MESSAGE DISPALYED */}
                         {errors.password && <p className='text-red-500'>{errors.password?.message}</p>}
-
-
                     </div>
 
 
@@ -181,7 +174,7 @@ const SignUp = () => {
 
                     <div className="divider">OR</div>
 
-                    <button className='btn btn-success w-full text-white bg-green-600'>Continue with Google</button>
+                    <button onClick={handleGoogle} className='btn btn-success w-full text-white bg-green-600'>Continue with Google</button>
 
                 </form>
                 

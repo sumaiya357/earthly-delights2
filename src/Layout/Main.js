@@ -9,13 +9,13 @@ const Main = () => {
     const [results, setResults] = useState([])
     return (
         <div>
-          <div className='sticky top-0 z-50'>
+           <div className='sticky top-0 z-50'> {/*z-50 =navbar will be above everything */}
           <Navbar></Navbar>
           <SearchBar  setResults = {setResults}></SearchBar>
           <SearchRes results={results}></SearchRes>
           </div>
 
-            <div className='relative'>
+            <div className=''>
             <Outlet></Outlet>
             </div>
 

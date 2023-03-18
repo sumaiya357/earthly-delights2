@@ -1,6 +1,5 @@
 [
     {
-        "id": 1,
         "name": "Capsicum Planr",
         "img": "https://cdn.shopify.com/s/files/1/0586/9374/6850/products/BigRedPepper2-min.jpg?v=1663346865&width=1445",
         "price": 100 ,
@@ -10,7 +9,6 @@
 
   
     {
-        "id": 2,
         "name": "Betel Leaf Plant ",
         "img": "https://cdn.shopify.com/s/files/1/0736/5693/products/Piperbetel6inchJuly2022_1024x1024.jpg?v=1659018056",
         "price": 3000 ,
@@ -18,7 +16,6 @@
         "quantity" :0
     },
     {
-        "id": 3,
         "name": "Cardamom Plant",
         "img": "https://cdn.shopify.com/s/files/1/0583/5967/7109/products/MyGreenStore_Plants_SmallCardamom_700x700.jpg?v=1646660814",
         "price": 3000 ,
@@ -26,7 +23,6 @@
         "quantity" :0
     },
     {
-        "id": 4,
         "name": "Basil Planr",
         "img": "https://cdn.shopify.com/s/files/1/0019/9730/8015/products/20180820_163812-01_57324370-3557-4d7b-aa8f-f7404d967e39_700x700.jpeg?v=1626412459",
         "price": 3000 ,

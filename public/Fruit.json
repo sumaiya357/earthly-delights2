@@ -1,6 +1,5 @@
 [
     {
-        "id": 1,
         "name": "Mango tree",
         "img": "https://cdn3.mydukaan.io/app/image/700x700/?url=https://mydukaan.s3.amazonaws.com/730950/570a0a01-8039-4174-b518-9bf54edfe5fb/mango-plant-600x600-b74a6df4-1e75-4312-9d2f-1807d8c55e2d.png",
         "price": 100 ,
@@ -10,7 +9,6 @@
 
   
     {
-        "id": 2,
         "name": "Apple ",
         "img": "https://cdn.shopify.com/s/files/1/0077/3511/5839/products/REDJONATHAN1_700x.jpg?v=1646770131",
         "price": 3000 ,
@@ -18,7 +16,6 @@
         "quantity" :0
     },
     {
-        "id": 3,
         "name": "Guava",
         "img": "https://cdn.shopify.com/s/files/1/0574/4754/6925/products/3_11eff002-c87f-409f-a8bf-9b527ffca59c_700x700.jpg?v=1657427661",
         "price": 3000 ,
@@ -26,7 +23,6 @@
         "quantity" :0
     },
     {
-        "id": 4,
         "name": "Avocado",
         "img": "https://cdn3.mydukaan.io/app/image/700x700/?url=https://dukaan-core-file-service.s3.ap-southeast-1.amazonaws.com/upload_file_service/555b9607-6af5-449d-80dc-6963626d9105/untitled-design-31.png",
         "price": 3000 ,
@@ -35,7 +31,6 @@
     },
    
     {
-        "id": 5,
         "name": "Bilati Gab",
         "img": "https://www.getsview.com/market/wp-content/uploads/sites/8/2020/10/Aloo-Bokhara-Plant-For-Sale-in-Bangladesh-GETSVIEW-Market.jpg",
         "price": 3000 ,
@@ -43,7 +38,6 @@
         "quantity" :0
     },
     {
-        "id": 6,
         "name": "Black Grapes",
         "img": "https://cdn.shopify.com/s/files/1/0574/4754/6925/products/balck_grapes_2_700x700.jpg?v=1657427029",
         "price": 3000 ,
@@ -52,7 +46,6 @@
     },
    
     {
-        "id": 8,
         "name": "Kiwi",
         "img": "https://www.gardens4you.ie/media/catalog/product/cache/3a7af0a8e0e317723249dc9098669163/f/d/fd18788wh.jpg",
         "price": 3000 ,

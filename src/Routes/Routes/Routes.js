@@ -4,8 +4,6 @@ import Main from "../../Layout/Main"
 import About from "../../pages/About/About"
 import AddProduct from "../../pages/AddProduct/AddProduct"
 import Home from "../../pages/Home/Home/Home"
-
-import Order from "../../pages/Home/Home/Order/Order"
 import ShopAllItems from "../../pages/Home/Home/Shop/ShopAllItems"
 import Login from "../../pages/Login/Login"
 
@@ -15,7 +13,6 @@ import DashboardLayout from "../../Layout/DashoardLayout"
 
 
 import errImg from '../../Assets/Images/errImg4.jpg'
-import MyOrder from "../../pages/Home/Home/Order/MyOrder/MyOrder"
 
 import AllUser from "../../pages/Home/Home/Order/AllUser/AllUser"
 
@@ -23,6 +20,10 @@ import Dashboard from "../../pages/Home/Home/Order/Dashboard/Dashboard"
 import AdminRoute from "./AdminRoute/AdminRoute"
 import AuctionBody from "../../auction/AuctionBody"
 import AuctionCards from "../../auction/AuctionCards/AuctionCards"
+import Order from "../../pages/Home/Home/Order/Order/Order"
+import { productAndCartLoaded } from "../../loaders/productAndCartLoader"
+import Articles from "../../pages/Articles/Articles"
+
 
 
 const router = createBrowserRouter([
@@ -60,6 +61,7 @@ const router = createBrowserRouter([
 
             {
                 path: '/order',
+                loader: productAndCartLoaded,
                 element: <Order></Order>
             }
             ,
@@ -71,6 +73,11 @@ const router = createBrowserRouter([
             {
                 path: '/auction',
                 element: <AuctionCards></AuctionCards>
+            }
+            ,
+            {
+                path: '/articles',
+                element: <Articles></Articles>
             }
            
         ]
@@ -90,13 +97,13 @@ const router = createBrowserRouter([
             }
             ,
              {
-                path:'/dashboard/addProduct',
+                path:'/addProduct',
                 element: <AddProduct></AddProduct>
              }
             ,
              {
                 path:'/dashboard/myorder',
-                element: <MyOrder></MyOrder>
+                element: <Order></Order>
              } 
         ]
     },

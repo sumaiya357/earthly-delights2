@@ -12,7 +12,7 @@ const Cart = (props) => {
         total = total + product.price * product.quantity ;
         quantity = quantity + product.quantity;
         delivery = delivery + product.charge;
-        // console.log(total)
+        console.log(delivery)
     }
 
     // const tax = parseFloat ((total * 0.1).toFixed(2));;

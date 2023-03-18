@@ -11,6 +11,7 @@ import SearchRes from '../../SearchBar/SearchRes';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
+    // console.log(user.uid)
 
     const handleLogOut = () => {
         logOut()
@@ -46,15 +47,17 @@ const Navbar = () => {
                                     <li className='bg-amber-400'><Category></Category></li>
                                 </ul>
                             </li>
-                            <li><Link to='/about'>About</Link></li>
+                            {/* <li><Link to='/about'>About</Link></li> */}
 
 
 
                             {user?.uid ?
                                 <>
                                     <li> <Link to='/shop'>Shop</Link></li>
+                                    <li><Link to='/articles'>Articles</Link></li>
                                     <li> <Link to='/dashboard'>Dashboard</Link></li>
                                     <li><Link to='/order'>Order</Link></li>
+
                                     <li><button onClick={handleLogOut} >SignOut</button></li>
 
                                     {
@@ -74,6 +77,9 @@ const Navbar = () => {
                             }
                             <li><Link to='/signup'>SignUp</Link></li>
                             <li><Link to='/auction'>Auction</Link></li>
+
+                       
+                            
                             <div className="form-control">
                                 <input type="text" placeholder="Search" className="input input-bordered" />
                             </div>
@@ -97,7 +103,7 @@ const Navbar = () => {
                         <li tabIndex={0}>
 
 
-                            <Link to='/' className="justify-between">
+                            <Link to='/' className="">
                                 Category
                                 <FontAwesomeIcon icon={faTurnDown}></FontAwesomeIcon>
                             </Link>
@@ -105,13 +111,16 @@ const Navbar = () => {
                                 <li className='bg-amber-400'><Category></Category></li>
                             </ul>
                         </li>
-                        <li><Link to='/about'>About</Link></li>
+                        {/* {/* <li><Link to='/about'>About</Link></li> */} 
 
                         {user?.uid ?
                             <>
                                 <li> <Link to='/shop'>Shop</Link></li>
+                                <li><Link to='/articles'>Articles</Link></li>
                                 <li> <Link to='/dashboard'>Dashboard</Link></li>
                                 <li><Link to='/order'>Order</Link></li>
+                               
+
                                 <li><button onClick={handleLogOut} >SignOut</button></li>
 
                                 {
@@ -127,8 +136,9 @@ const Navbar = () => {
                         }
                         <li><Link to='/signup'>SignUp</Link></li>
                         <li><Link to='/auction'>Auction</Link></li>
+                        
 
-                      <div className='flexgrid grid-cols-1'>
+                      <div className='flex grid grid-cols-1'>
                       {/* <SearchBar setResults = {setResults}></SearchBar>
                        <SearchRes results={results}></SearchRes> */}
                       </div>

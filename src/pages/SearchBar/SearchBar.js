@@ -24,11 +24,19 @@ const SearchBar = ({setResults}) => {
         setInput(value)
         fetchData(value)
     }
+
+    const handleSearch = () => {
+        const searchField = document.getElementById('search')
+        const searchText = searchField.value;
+        console.log('searching',searchText)
+        fetchData(searchText)
+
+    }
     return (
         <div className='w-3/6 pt-7 pb-2'>
              <div className="flex ">
-               <input placeholder="Type to Search..." value={input} onChange={(e) => handleChange(e.target.value)} className="input input-bordered text-black w-3/4 " />
-              <FontAwesomeIcon className='pt-4 pl-2' icon={faSearch}></FontAwesomeIcon>  
+               <input id='search' placeholder="Type to Search..." value={input} onChange={(e) => handleChange(e.target.value)} className="input input-bordered text-black w-3/4 " />
+              <button  onClick={handleSearch}><FontAwesomeIcon className='pt-4 pl-2' icon={faSearch}></FontAwesomeIcon></button>  
              </div>
             
         </div>

@@ -1,6 +1,5 @@
 [
     {
-        "id": 1,
         "name": "Red Rose",
         "img": "https://www.thegardenshop.ie/images/detailed/10/red-rose-plants-1.jpg",
         "price": 100 ,
@@ -9,7 +8,6 @@
     },
 
     {
-        "id": 14,
         "name": "Money Plant",
         "img": "https://www.basilflorist.com/image/cache/catalog/Plants/LIGHT-GREEN-MONEYPLANT-700x700.jpg",
         "price": 3000 ,
@@ -17,7 +15,6 @@
         "quantity" :0
     },
     {
-        "id": 2,
         "name": "Kamini Flower",
         "img": "http://cdn.shopify.com/s/files/1/0284/2450/products/murraya-paniculata-Kamini_56031ce1-3e8c-49e6-80ea-aa6e79cccaee_1024x.JPG?v=1571438537",
         "price": 3000 ,
@@ -25,7 +22,6 @@
         "quantity" :0
     },
     {
-        "id": 3,
         "name": "Marigold",
         "img": "https://www.flowerpower.com.au/media/catalog/product/cache/bdcf0022850627d2b6422c66929c11b7/7/8/7876901002_001.jpg",
         "price": 3000 ,
@@ -33,7 +29,6 @@
         "quantity" :0
     },
     {
-        "id": 4,
         "name": "Beli",
         "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7KRa-fC5habxsAO3UBK8RbcseHVQ1BNdmYA&usqp=CAU",
         "price": 3000 ,
@@ -42,7 +37,6 @@
     },
    
     {
-        "id": 6,
         "name": "SunFlower",
         "img": "https://www.veseys.com/media/catalog/product/cache/image/700x700/e9c3970ab036de70892d86c6d221abfe/p/a/pacinomixsunflower-pacinomixsunflower-image-24471%20pacino%20mix.jpg",
         "price": 3000 ,
@@ -50,7 +44,6 @@
         "quantity" :0
     },
     {
-        "id": 5,
         "name": "Tube Rose",
         "img": "https://www.gardens4you.ie/media/catalog/product/cache/3a7af0a8e0e317723249dc9098669163/f/d/fd19117wh.jpg",
         "price": 3000 ,
@@ -59,7 +52,6 @@
     },
    
     {
-        "id": 8,
         "name": "Camellia Flower",
         "img": "https://www.gardens4you.co.uk/media/catalog/product/cache/6d6e270e1eef6d7aa204aa65622d8cce/f/d/fd17328wh.jpg",
         "price": 3000 ,
@@ -67,7 +59,6 @@
         "quantity" :0
     },
     {
-        "id": 7,
         "name": "Jasmine",
         "img": "https://cdn.shopify.com/s/files/1/0061/6389/0289/products/Jamsin8_x700.jpg?v=1632929983",
         "price": 3000 ,
@@ -75,7 +66,6 @@
         "quantity" :0
     },
     {
-        "id": 9,
         "name": "Blue Aparajita",
         "img": "https://thumbs.dreamstime.com/b/blue-valvet-butterfly-look-aparajita-flower-garden-asansol-west-bengal-blue-valvet-butterfly-look-aparajita-flower-161931574.jpg",
         "price": 3000 ,
@@ -83,7 +73,6 @@
         "quantity" :0
     },
     {
-        "id": 10,
         "name": "Daisy",
         "img": "https://www.veseys.com/media/catalog/product/cache/image/700x700/e9c3970ab036de70892d86c6d221abfe/a/l/alaskashasta-alaskashasta-image-2757alaskadaisy.jpg",
         "price": 3000 ,
@@ -93,23 +82,14 @@
 
     ,
     {
-        "id": 11,
         "name": "China Bamboo",
         "img": "https://www.flowerpower.com.au/media/catalog/product/cache/bdcf0022850627d2b6422c66929c11b7/9/3/9337886000574_1.jpg",
         "price": 3000 ,
         "charge": 100,
         "quantity" :0
     },
+   
     {
-        "id": 12,
-        "name": "Daisy",
-        "img": "https://www.veseys.com/media/catalog/product/cache/image/700x700/e9c3970ab036de70892d86c6d221abfe/a/l/alaskashasta-alaskashasta-image-2757alaskadaisy.jpg",
-        "price": 3000 ,
-        "charge": 100,
-        "quantity" :0
-    },
-    {
-        "id": 13,
         "name": "Lucky Bamboo",
         "img": "https://cdn.shopify.com/s/files/1/0479/9089/8856/products/plantsguru-lucky-bamboo-2layer-bamboo-800x800_700x700.png?v=1619513030",
         "price": 3000 ,
@@ -119,7 +99,6 @@
    
     ,
     {
-        "id": 15,
         "name": "Succulent Plant",
         "img": "https://cdn.shopify.com/s/files/1/0479/9089/8856/products/WhatsAppImage2023-02-02at2.15.34PM_1_700x700.jpg?v=1675495106",
         "price": 3000 ,
@@ -128,7 +107,6 @@
     }
     ,
     {
-        "id": 16,
         "name": "Night Blooing Jasmine",
         "img": "https://i.ebayimg.com/images/g/3QsAAOSwjl9hy9fw/s-l500.jpg",
         "price": 3000 ,

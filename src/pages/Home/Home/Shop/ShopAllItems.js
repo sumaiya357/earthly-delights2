@@ -12,6 +12,7 @@ import Tools from '../../../categoryPages/Tools/Tools';
 import Cart from '../Cart/Cart'
 import InfoCard from '../InfoCards/InfoCard';
 import NewArrivalCard from '../NewArrivalCards/NewArrivalCard';
+import ReviewItem from '../Order/Order/ReviewItem/ReviewItem';
 import Product from '../Product/Product';
 
 
@@ -409,7 +410,7 @@ const ShopAllItems = () => {
                     </div>
                 </div>
 
-
+              
             </div>
             
 

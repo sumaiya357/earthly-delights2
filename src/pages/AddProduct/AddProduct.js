@@ -33,7 +33,7 @@ const AddProduct = () => {
                     img: imgData.data.url,
                     price: data.price,
                     quantity: 0,
-                    charge: data.charge
+                    charge: parseInt(data.charge)
                     
 
                 }
@@ -136,7 +136,7 @@ const AddProduct = () => {
                         <span className="label-text">Shipping Charge</span>
                     </label>
 
-                    <input type="number"{...register("charge", { required: "Shipping charge required" })}
+                    <input type="int"{...register("charge", { required: "Shipping charge required" })}
                         className="input input-bordered w-full max-w-xs " />
 
                     {/* ERROR MESSAGE DISPALYED */}
