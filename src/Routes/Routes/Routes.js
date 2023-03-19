@@ -57,13 +57,7 @@ const router = createBrowserRouter([
                 path: '/signup',
                 element: <SignUp></SignUp>
             }
-            ,
-
-            {
-                path: '/order',
-                loader: productAndCartLoaded,
-                element: <Order></Order>
-            }
+          
             ,
 
             {
@@ -73,6 +67,10 @@ const router = createBrowserRouter([
             {
                 path: '/auction',
                 element: <AuctionCards></AuctionCards>
+            } ,
+            {
+               path:'/addProduct',
+               element: <AddProduct></AddProduct>
             }
             ,
             {
@@ -86,25 +84,19 @@ const router = createBrowserRouter([
         path: '/dashboard',
         element: <PrivateRoute> <DashboardLayout></DashboardLayout> </PrivateRoute>,
         children: [
-            {
-                path:'/dashboard',
-                element: <Dashboard></Dashboard>
-            }
-            ,
+           
             {
                 path:'/dashboard/alluser',
                 element: <AdminRoute><AllUser></AllUser></AdminRoute>
-            }
-            ,
-             {
-                path:'/addProduct',
-                element: <AddProduct></AddProduct>
-             }
-            ,
-             {
-                path:'/dashboard/myorder',
+            }  ,
+
+            {
+                path: '/dashboard/order',
+                loader: productAndCartLoaded,
                 element: <Order></Order>
-             } 
+            }
+           
+           
         ]
     },
     {

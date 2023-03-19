@@ -22,21 +22,21 @@ const Banner = () => {
                  </div>  
                    
                  
-                    <div className="absolute flex justify-end transform -translate-y-1/2 right-24   top-1/2 ">
+                    <div className="absolute flex justify-end  -translate-y-1/2 right-24   top-1/2 ">
                         <h1 className='text-2xl lg:text-5xl md:text-3xl font-bold text-white md:text-3xl '>Happiness is turning your <br></br>
                          space into green</h1>
                     </div>
-                    <div className="absolute flex justify-start transform -translate-y-1/2 right-96   top-2/3 ">
+                    <div className="absolute flex justify-start  -translate-y-1/2 right-96   top-2/3 ">
                         <p className='text-xs md:text-xl lg:text-3xl  font-bold text-white'>Get upto 30% off</p>
                     </div>
-                    <div className="btn-gradient absolute flex justify-start transform -translate-y-1/2 right-1/3 mt-5   top-3/4 ">
+                    <div className="btn-gradient absolute flex justify-start  -translate-y-1/2 right-1/3 mt-5   top-3/4 ">
                     <button className="btn btn-success button text-white text-xs md:text-xs lg:text-xl btn-sm lg:btn-md"><Link to='/shop'>Shop Now</Link> 
                     
                     </button>
                     </div>
                     
 
-                    <div className="absolute flex  justify-end transform -translate-y-1/2 left-5  right-5 bottom-0">
+                    <div className="absolute flex  justify-end  -translate-y-1/2 left-5  right-5 bottom-0">
                         <a href="#slide3" className="btn btn-circle mr-5">❮</a>
                         <a href="#slide2" className="btn btn-circle">❯</a>
                     </div>
@@ -48,19 +48,21 @@ const Banner = () => {
                 <div className='carousel-img '>
                   <img   src={b12}alt=''  />
                  </div> 
-                    <div className="absolute flex justify-end transform -translate-y-1/2 left-5  right-5 bottom-0 ">
+                    <div className="absolute flex justify-end  -translate-y-1/2 left-5  right-5 bottom-0 ">
                         <a href="#slide1" className="btn btn-circle mr-5">❮</a>
                         <a href="#slide3" className="btn btn-circle">❯</a>
                     </div>
-                    <div className="absolute flex justify-end transform -translate-y-1/2 right-24   top-1/2 ">
+                    <div className="absolute flex justify-end  -translate-y-1/2 right-24   top-1/2 ">
                         <h1 className='text-2xl lg:text-5xl md:text-3xl  font-bold  text-white'>Happiness is watching bulbs  <br></br>
                         grow into Flowers</h1>
                     </div>
-                    <div className="absolute flex justify-end transform -translate-y-1/2 right-96 w-1/2   top-2/3 ">
+                    <div className="absolute flex justify-end  -translate-y-1/2 right-96 w-1/2   top-2/3 ">
                         <p className='text-xs md:text-xl lg:text-3xl font-bold text-white'>Get upto 30% off</p>
                     </div>
-                    <div className="absolute flex justify-start transform -translate-y-1/2 right-1/3 mt-5   top-3/4 ">
-                    <button className="btn btn-success text-white button">Shop Now</button>
+                    <div className="absolute flex justify-start  -translate-y-1/2 right-1/3 mt-5   top-3/4 ">
+                    <button className="btn btn-success button text-white text-xs md:text-xs lg:text-xl btn-sm lg:btn-md"><Link to='/shop'>Shop Now</Link> 
+                    
+                    </button>
                     </div>
                     
                 </div>
@@ -70,19 +72,21 @@ const Banner = () => {
                    <div className='carousel-img'>
                    <img  src= {b10}alt='' className='w-full' />
                    </div>
-                    <div className="absolute flex justify-end transform -translate-y-1/2 left-5  right-5 bottom-0">
+                    <div className="absolute flex justify-end  -translate-y-1/2 left-5  right-5 bottom-0">
                         <a href="#slide2" className="btn btn-circle mr-5">❮</a>
                         <a href="#slide1" className="btn btn-circle">❯</a>
                     </div>
-                    <div className="absolute flex justify-end transform -translate-y-1/2 right-32   top-1/2 ">
+                    <div className="absolute flex justify-end  -translate-y-1/2 right-32   top-1/2 ">
                         <h1 className='text-2xl lg:text-5xl md:text-3xl  font-bold text-white'>Happiness is  growing more  <br></br>
                         and more plants</h1>
                     </div>
-                    <div className="absolute flex justify-end transform -translate-y-1/2  w-1/2 right-24  top-2/3">
+                    <div className="absolute flex justify-end  -translate-y-1/2  w-1/2 right-24  top-2/3">
                         <p className='text-xs md:text-xl lg:text-3xl font-bold text-white'>"GREEN GVES HEATH AND HEATH IS WEALTH"</p>
                     </div>
-                    <div className="absolute flex justify-start transform -translate-y-1/2  mt-5  right-1/3  top-3/4 ">
-                    <button className="btn btn-success text-white button">Shop Now</button>
+                    <div className="absolute flex justify-start  -translate-y-1/2  mt-5  right-1/3  top-3/4 ">
+                    <button className="btn btn-success button text-white text-xs md:text-xs lg:text-xl btn-sm lg:btn-md"><Link to='/shop'>Shop Now</Link> 
+                    
+                    </button>
                     </div>
                 </div>
                

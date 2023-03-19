@@ -2,7 +2,7 @@ import React from 'react';
 
 const SearchResult = ({result}) => {
     return (
-        <div onClick={ (e) =>{ }}>
+        <div className=''>
             <h3>{result.name}</h3>
         </div>
     );

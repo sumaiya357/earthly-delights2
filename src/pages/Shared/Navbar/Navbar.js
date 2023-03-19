@@ -1,13 +1,11 @@
 import { faTurnDown } from '@fortawesome/free-solid-svg-icons';
 
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 import Category from '../Category/Category';
 import useAdmin from '../../../hooks/useAdmin'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import SearchBar from '../../SearchBar/SearchBar';
-import SearchRes from '../../SearchBar/SearchRes';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -20,7 +18,6 @@ const Navbar = () => {
     }
     const [isAdmin] = useAdmin(user?.email)
 
-    const [results, setResults] = useState([])
     return (
         <div>
             <div className="navbar  bg-green-700 text-primary-content mt-5 ">
@@ -56,13 +53,13 @@ const Navbar = () => {
                                     <li> <Link to='/shop'>Shop</Link></li>
                                     <li><Link to='/articles'>Articles</Link></li>
                                     <li> <Link to='/dashboard'>Dashboard</Link></li>
-                                    <li><Link to='/order'>Order</Link></li>
+                                    <li><Link to='/dashboard/order'>Order</Link></li>
 
                                     <li><button onClick={handleLogOut} >SignOut</button></li>
 
                                     {
                                         isAdmin ? <>
-                                            <li><Link to='/dashboard/addProduct'>AddProduct</Link></li>
+                                            <li><Link to='/addProduct'>AddProduct</Link></li>
                                             <li><Link to='/addAuction'>Add Auction</Link></li>
                                         </> :
                                             <> </>
@@ -118,14 +115,14 @@ const Navbar = () => {
                                 <li> <Link to='/shop'>Shop</Link></li>
                                 <li><Link to='/articles'>Articles</Link></li>
                                 <li> <Link to='/dashboard'>Dashboard</Link></li>
-                                <li><Link to='/order'>Order</Link></li>
+                                <li><Link to='/dashboard/order'>Order</Link></li>
                                
 
                                 <li><button onClick={handleLogOut} >SignOut</button></li>
 
                                 {
                                     isAdmin ? <>
-                                        <li><Link to='/dashboard/addProduct'>AddProduct</Link></li>
+                                        <li><Link to='/addProduct'>AddProduct</Link></li>
                                         <li><Link to='/addAuction'>Add Auction</Link></li>
                                     </> :
                                         <> </>

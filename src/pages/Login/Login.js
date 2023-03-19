@@ -22,19 +22,19 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/';
 
     
-    if(token){
-        navigate(from, {replace: true})
-    }
+    // if(token){
+    //     navigate(from, {replace: true})
+    // }
 
     const handleLogin = data =>{
-        console.log(data)
+        // console.log(data)
         setLoginErr('')
         signIn(data.email, data.password)
         .then(result => {
             const user = result.user;
             console.log(user)
             setLoginUserEmail(data.email);
-            // navigate('/')
+            navigate('/')
             
         })
         .catch(error =>{ 

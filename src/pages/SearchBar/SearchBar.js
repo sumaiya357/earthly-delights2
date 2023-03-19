@@ -7,12 +7,16 @@ const SearchBar = ({setResults}) => {
 
     const [input,  setInput] = useState("");
 
-    const fetchData= (value) => {
-        fetch('http://localhost:5000/flowers')
+    const fetchData= (value) => { //value is the text to search for
+        fetch('http://localhost:5000/products')
         .then(res => res.json())
         .then(data => {
-            const result = data.filter( (user) =>{
-                return value && user && user.name && user.name.toLowerCase().includes(value)
+            const result = data.filter( (results) =>{
+                return (
+                    value &&
+                     results && 
+                     results.name && 
+                     results.name.toLowerCase().includes(value))
             });
             console.log(result)
             setResults(result)
@@ -22,14 +26,14 @@ const SearchBar = ({setResults}) => {
 
     const handleChange = (value) =>{
         setInput(value)
-        fetchData(value)
+        fetchData(value)//what we/ll search in Inp field it'll look into the fetched API
     }
 
     const handleSearch = () => {
-        const searchField = document.getElementById('search')
-        const searchText = searchField.value;
-        console.log('searching',searchText)
-        fetchData(searchText)
+        // const searchField = document.getElementById('search')
+        // const searchText = searchField.value;
+        // console.log('searching',searchText)
+        // fetchData(searchText)
 
     }
     return (

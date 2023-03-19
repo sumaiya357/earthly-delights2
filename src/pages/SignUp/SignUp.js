@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import login from '../../Assets/Images/loginImg/signup.png';
 import useToken from '../../hooks/useToken';
-import { getAuth, sendEmailVerification, signInWithPopup } from 'firebase/auth';
+import { getAuth, signInWithPopup } from 'firebase/auth';
 const SignUp = () => {
 
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -22,13 +22,15 @@ const SignUp = () => {
     //TOKEN
     const[createdUser, setCreatedUser] = useState('')
 
-    const [token] = useToken(createdUser);
+    // const [token] = useToken(createdUser);
 
      //navigate to home page after login
      const navigate = useNavigate();
-     if(token){
-        navigate('/')
-     }
+
+
+    //  if(token){
+    //     navigate('/')
+    //  }
 
     const handleSignUp = (data) => {
         // console.log(data)
@@ -42,30 +44,34 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate('/');
                 toast('User created successfully')
+
                 verifyEmail()
+
+
                 const userInfo = {
                     displayName: data.name
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        userDetails(data.name, data.email)
-                        // navigate('/');
-                         //got to home page
+                        userDetails(data.name, data.email)                   
                     })
                     .catch(err => console.log(err));             
             })
+            
             .catch(error => {
                 console.log(error)
                 setSignupErr(error.message)
             });
 
+        //first save to firebase, then send to DB then nVigate
        const userDetails = (name, email) => {
         const userDetails= {
             name,
             email,
-        }
-               console.log(userDetails)
+        }    
+            //-----// usersend to backend//-------          
             fetch('http://localhost:5000/users', {
                 method: 'POST',
                 headers: {
@@ -77,7 +83,6 @@ const SignUp = () => {
             .then(data => {
                 // console.log(data);
                 // getUserToken(email)
-
                 setCreatedUser(email);
                 toast.success('SUCCESSFULLY ADDED')
             

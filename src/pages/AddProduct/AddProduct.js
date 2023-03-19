@@ -1,16 +1,18 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const AddProduct = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
 
+    const navigate =useNavigate();
     const imgHostKey =process.env.REACT_APP_imgbb_key;
     // console.log(imgHostKey);
 
     const handleAddProduct = data => {
         // console.log(data)
-        const image = data.image[0];
+        const image = data.image[0];//take file type from 0 pos indx
         // console.log(data.image[0])
 
         const formData = new FormData();
@@ -19,11 +21,11 @@ const AddProduct = () => {
 
         fetch(url, {
             method: 'POST',
-            body: formData
+            body: formData //for file data we are submitting formdata
         })
         .then(res => res.json())
         .then(imgData => {
-            // console.log(imgData)
+            // console.log(imgData) //taking success from data from imgData
 
             if(imgData.success){
                 console.log(imgData.data.url);
@@ -38,18 +40,20 @@ const AddProduct = () => {
 
                 }
                 console.log(product)
+
                 //SAVE Product info to DB
                 fetch('http://localhost:5000/addedProducts', {
                     method:'POST',
                     headers:{
                         'content-type': 'application/json',
-                        authorization: `bearer ${localStorage.getItem('accessToken')}`
+                        authorization: `bearer ${localStorage.getItem('accessToken')}`//admin functionality
                     },
                     body: JSON.stringify(product)
                 })
                 .then(res => res.json())
                 .then(result=> {
                     toast('Product added successfully')
+                    navigate('/shop')
                     console.log(result);
                 })
                 
@@ -57,36 +61,34 @@ const AddProduct = () => {
         })
     }
     return (
-        <div className='w-96 p-7 '>
-            <h2>ADD PRODUCT</h2>
+        <div className='w-96 p-7 ml-64 '>
+            <h2 className='font-bold text-xl pb-5'>ADD PRODUCT</h2>
             <form onSubmit={handleSubmit(handleAddProduct)}>
 
 
-                <div className="form-control w-full max-w-xs">
+                <div className="form-control w-full ">
                     <label className="label">
-                        <span className="label-text">Name</span>
+                        <span className="label-text">Item Name</span>
                     </label>
 
-                    <input type="text"{...register("name", { required: "UserName required" })}
-                        className="input input-bordered w-full max-w-xs " />
+                    <input type="text"{...register("name", { required: "Item name required" })}
+                        className="input input-bordered w-full  " />
 
                     {/* ERROR MESSAGE DISPALYED */}
                     {errors.name && <p className='text-red-500'>{errors.name?.message}</p>}
 
                 </div>
 
+                          {/* ----------//TYPE //---------- */}
                 
 
-
-
-                <div className="form-control w-full max-w-xs">
+                <div className="form-control w-full ">
                     <label className="label">
                     <span className="label-text">Type</span>
                     </label>
 
-                          {/* ----------//DROPDOWN //---------- */}
 
-                    <select className="select  input-bordered w-full max-w-xs"
+                    <select className="select  input-bordered w-full "
                     {...register('type')}>
                    
 
@@ -101,13 +103,16 @@ const AddProduct = () => {
 
                 </div>
 
-                <div className="form-control w-full max-w-xs">
+
+                          {/* ----------//PHOTO //---------- */}
+
+                <div className="form-control w-full ">
                     <label className="label">
                         <span className="label-text">Photo</span>
                     </label>
 
                     <input type="file"{...register("image", { required: "Photo required" })}
-                        className="input input-bordered pt-2  w-full max-w-xs " />
+                        className="input input-bordered pt-2  w-full  " />
 
                     {/* ERROR MESSAGE DISPALYED */}
                     {errors.image && <p className='text-red-500'>{errors.image?.message}</p>}
@@ -116,13 +121,13 @@ const AddProduct = () => {
 
                {/* -----------PRICE //---------------------- */}
 
-                <div className="form-control w-full max-w-xs">
+                <div className="form-control w-full ">
                     <label className="label">
                         <span className="label-text">Price</span>
                     </label>
 
                     <input type="number"{...register("price", { required: "Price required" })}
-                        className="input input-bordered w-full max-w-xs " />
+                        className="input input-bordered w-full  " />
 
                     {/* ERROR MESSAGE DISPALYED */}
                     {errors.price && <p className='text-red-500'>{errors.price?.message}</p>}
@@ -131,13 +136,13 @@ const AddProduct = () => {
 
                  {/* -----------SHIPPING CHARGE //---------------------- */}
 
-                 <div className="form-control w-full max-w-xs">
+                 <div className="form-control w-full ">
                     <label className="label">
                         <span className="label-text">Shipping Charge</span>
                     </label>
 
                     <input type="int"{...register("charge", { required: "Shipping charge required" })}
-                        className="input input-bordered w-full max-w-xs " />
+                        className="input input-bordered w-full  " />
 
                     {/* ERROR MESSAGE DISPALYED */}
                     {errors.charge && <p className='text-red-500'>{errors.charge?.message}</p>}
@@ -146,13 +151,13 @@ const AddProduct = () => {
 
                 {/* // -------------- Quantity // ----------- */}
 
-                 <div className="form-control w-full max-w-xs" >  {/*style={{ display:"none" }}  */}
+                 <div className="form-control w-full " >  {/*style={{ display:"none" }}  */}
                     <label className="label">
                         <span className="label-text">Quantity</span>
                     </label>
 
                     <input  defaultValue={0} disabled type="text"{...register("quantity")}
-                        className="input input-bordered w-full max-w-xs " />
+                        className="input input-bordered w-full  " />
 
                     {/* ERROR MESSAGE DISPALYED */}
                     {errors.quantity && <p className='text-red-500'>{errors.quantity?.message}</p>}

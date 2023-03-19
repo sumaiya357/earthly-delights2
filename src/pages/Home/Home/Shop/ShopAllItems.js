@@ -50,26 +50,6 @@ const ShopAllItems = () => {
     }, [products])
 
 
-    // const handleBestSellimg = (selectedProduct) => {
-    //     // console.log('clicked');
-    //     // console.log(selectedProduct);
-    //     let newCart = [];
-    //     const exists = cart.find(product => product._id === selectedProduct._id)
-    //     if (!exists) {
-    //         selectedProduct.quantity = 1;
-    //         newCart = [...cart, selectedProduct];
-    //     }
-    //     else {
-    //         const rest = cart.filter(product => product._id !== selectedProduct._id);
-    //         exists.quantity = exists.quantity + 1;
-    //         newCart = [...rest, exists];
-    //     }
-
-    //     setCart(newCart);
-    //     addToDb(selectedProduct._id);
-
-    // }
-
 
      // -------------- BEST SELLING PRODUCT -------------
 
@@ -93,33 +73,7 @@ const ShopAllItems = () => {
     })
 
 
-    // useEffect(() =>{
-    //     console.log('local stoarge first line',products);
-    // const storedCart = getStoredCart()
-    // console.log(storedCart);
-    //     const savedCart = [];
-    //     for(const id in storedCart){
-    //         // console.log(id);
-    //         const addedProduct = products?.find(selectedProduct => selectedProduct.id === id)
-    //         if(addedProduct){
-    //             const quantity = storedCart[id];
-    //             addedProduct.quantity = quantity;
-    //             // console.log(addedProduct)
-    //             savedCart.push(addedProduct);
-    //         }
-
-    //     }
-    //     setCart(savedCart);
-    //     // console.log('local storGE finished');
-    // },  [products])
-
-
-
-
-
-
-
-
+    
 
     // ----------// FLOWERS //----------------
 
@@ -197,12 +151,12 @@ const ShopAllItems = () => {
 
     const handleAddToCart = (selectedProduct) => {
         // console.log('clicked');
-        // console.log(selectedProduct);
+        // console.log(selectedProduct);//add this on your cart
         let newCart = [];
         const exists = cart.find(product => product._id === selectedProduct._id)
         if (!exists) {
             selectedProduct.quantity = 1;
-            newCart = [...cart, selectedProduct];
+            newCart = [...cart, selectedProduct];//copy the old cart and then add seleted producs
         }
         else {
             const rest = cart.filter(product => product._id !== selectedProduct._id);

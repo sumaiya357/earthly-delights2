@@ -5,11 +5,11 @@ const addToDb = id =>{
     //get the shopping cart from local storage
     const storedCart = localStorage.getItem('shopping-cart');
     if(storedCart){
-        shoppingCart = JSON.parse(storedCart);
+        shoppingCart = JSON.parse(storedCart);//jsonStr convert to js to store in local strg so that we can add mutiple products
     }
 
-    // add quantity
-    const quantity = shoppingCart[id];
+    // if there is quantity then add quantity
+    const quantity = shoppingCart[id];//id  gives the nimver of value
     if(quantity){
         const newQuantity = quantity + 1;
         shoppingCart[id] = newQuantity;
@@ -17,7 +17,7 @@ const addToDb = id =>{
     else{
         shoppingCart[id] = 1;
     }
-    localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
+    localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));//shopping cart is stored/ set in local strg
 }
 
 

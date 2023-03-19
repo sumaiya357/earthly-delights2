@@ -25,6 +25,7 @@ const Order = () => {
         <div className='grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 '>
             
             <div className=''>
+            <h2 className='ml-5 mt-10 text-2xl'>Review Order</h2>
                 {
                     cart.map(product => <ReviewItem
                     key= {product._id}

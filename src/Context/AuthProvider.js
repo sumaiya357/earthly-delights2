@@ -10,10 +10,12 @@ const auth = getAuth(app);
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
 
+    //after loginif we reload privateroute page it redirects to login again
+    // so to ignore we use loading
     const[loading, setLoading] = useState(true);
 
     const createUser = (email, password) =>{
-        setLoading(true);
+        setLoading(true);//since new user is created
         return createUserWithEmailAndPassword(auth, email, password);
        //register
     }
@@ -42,7 +44,7 @@ const AuthProvider = ({children}) => {
     }
 
 
-
+//GET CURRENTLY SIGNEDin User
     useEffect( () => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             console.log('user observing');

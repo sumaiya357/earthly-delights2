@@ -8,7 +8,7 @@ const Cart = (props) => {
     let quantity = 0;
     let delivery = 0;
 
-    for(const product of cart){
+    for(const product of cart){ //cart er product theke total, quan, deliv nibe
         total = total + product.price * product.quantity ;
         quantity = quantity + product.quantity;
         delivery = delivery + product.charge;

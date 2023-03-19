@@ -50,8 +50,15 @@ const Product = ( props ) => {
                     <p className='font-bold ' >{price} <span className='text-2xl'>৳</span></p>
                     <div className="card-actions justify-start">
                         {/* <button >Buy now!</button> */}
-                        <button onClick={() => props.handleAddToCart(props.product)} className="btn-cart btn btn-success btn-sm text-xs button text-white">Add To Cart
-                <FontAwesomeIcon className='ml-2' icon={faShoppingCart}></FontAwesomeIcon></button>
+
+                        {
+                                        isAdmin ? 
+                                           <></>
+                                         :
+                                         <button onClick={() => props.handleAddToCart(props.product)} className="btn-cart btn btn-success btn-sm text-xs button text-white">Add To Cart
+                                         <FontAwesomeIcon className='ml-2' icon={faShoppingCart}></FontAwesomeIcon></button>
+                                    }
+                        
                 
                     </div>
 

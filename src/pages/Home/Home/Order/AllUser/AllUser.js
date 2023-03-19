@@ -1,7 +1,11 @@
 
+import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useQuery } from '@tanstack/react-query'
+import { useState } from 'react';
 
 import toast from 'react-hot-toast';
+import ConfirmModal from '../../../../Shared/ConfirmModal/ConfirmModal';
 
 
 const AllUser = () => {
@@ -23,6 +27,28 @@ const AllUser = () => {
         }
     });
 
+    const[deletProduct, setDeletProduct] = useState(null);
+
+    
+    //Cancel Button of Modal
+    const closeModal = () => {
+        setDeletProduct(null)
+    }
+
+    const handleDeleteProduct = product => {
+        fetch(`http://localhost:5000/users/${product._id}`,{
+        method: 'DELETE',
+        headers: {
+          authorization: `bearer ${localStorage.getItem('accessToken')}`
+        }
+        })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+          refetch()
+        })
+      }
+
     const handleMakeAdmin = id => {
                fetch(`http://localhost:5000/users/admin/${id}`, {
                 method: 'PUT',
@@ -32,7 +58,7 @@ const AllUser = () => {
                })
                .then( res => res.json())
                .then(data => {
-                // console.log(data);
+                // console.log(data);//as a resp modifuesCount is 1 after click
                 if(data.modifiedCount > 0){
                     toast.success('Made Admin Successfull')
                     refetch()
@@ -63,8 +89,13 @@ const AllUser = () => {
                                 <th> {i+1}</th>
                                 <td> {user.name} </td>
                                 <td>{user.email}</td>
-                                <td>{ user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-xs btn-primary'>Make Admin</button>}</td>
-                                <td><button className='btn btn-xs btn-error'>Delete</button></td>
+
+                                <td>{ user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn  btn-xs btn-primary'>Make Admin</button>}</td>
+
+
+                               <td>
+                               <label onClick={() => setDeletProduct(user)} htmlFor="delet-modal" className="btn btn-error  btn-xs text-white mt-3">Delet  <FontAwesomeIcon className='ml-2' icon={faDeleteLeft }></FontAwesomeIcon></label>
+                               </td>
                             </tr>
 
                             )
@@ -73,7 +104,21 @@ const AllUser = () => {
                 </table>
             </div>
             
+            {
+        
+        deletProduct && 
+        <ConfirmModal
+        title={`Are you sure you want to delet?`}
+        message={`If you delete it cannot be undone`}
+        success={handleDeleteProduct}
+        successButton="DELETE"
+        modalData={deletProduct}
+        closeModal = {closeModal}
+        >
             
+        </ConfirmModal>
+        
+    }
         </div>
     );
 };
